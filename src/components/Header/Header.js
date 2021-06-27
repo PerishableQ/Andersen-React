@@ -1,4 +1,5 @@
 import './Header.css'
+import logo from '../../../src/assets/img/logo.png'
 
 function Header(props) {
 	return (
@@ -7,7 +8,7 @@ function Header(props) {
 				<div class="header__body">
 
 					<a href="#" class="header__logo logo">
-						<img src="img/logo.png" alt="logo" />
+						<img src={logo} alt="logo" />
 					</a>
 
 
