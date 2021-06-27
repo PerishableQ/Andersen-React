@@ -1,9 +1,10 @@
 import React from 'react';
+import SignIn from './components/SIgnIn/SignIn';
 
 function App() {
   return (
     <div className="App">
-      SearchMovies
+      <SignIn />
     </div>
   );
 }
