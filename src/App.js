@@ -4,6 +4,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
+import SearchResult from './components/SearchResult/SearchResult';
 
 
 // Import CSS
@@ -19,6 +20,7 @@ function App() {
       <main className="page">
         {/* Сюда кладем все компоненты кроме хедера и футера */}
         <HomePage />
+        <SearchResult />
       </main>
 
 
