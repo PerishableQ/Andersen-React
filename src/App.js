@@ -2,7 +2,8 @@ import React from 'react';
 import SignIn from './components/SIgnIn/SignIn';
 
 //Import JS
-import Header from './component/Header/Header';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 
 // Import CSS
@@ -12,8 +13,18 @@ import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <SignIn />
+    <div class="wrapper">
+      <Header />
+
+      <main class="page">
+        {/* Сюда кладем все компоненты кроме хедера и футера */}
+
+      </main>
+
+
+      <Footer />
+
+
     </div>
   );
 }
