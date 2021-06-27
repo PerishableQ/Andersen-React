@@ -4,7 +4,7 @@ function Card(props) {
 
 	let favorite = props.isFavorite
 		?
-		<div class="card-item__favorite-icon">
+		<div className="card-item__favorite-icon">
 			<svg id="Capa_1" enable-background="new 0 0 512.07 512.07" height="512"
 				viewBox="0 0 512.07 512.07" width="512" xmlns="http://www.w3.org/2000/svg">
 				<g>
@@ -14,7 +14,7 @@ function Card(props) {
 			</svg>
 		</div>
 		:
-		<div class="card-item__favorite-icon">
+		<div className="card-item__favorite-icon">
 			<svg id="Capa_1" enable-background="new 0 0 512.07 512.07" height="512"
 				viewBox="0 0 512.07 512.07" width="512" xmlns="http://www.w3.org/2000/svg">
 				<g>
@@ -26,15 +26,15 @@ function Card(props) {
 
 
 	return (
-		<a href="#" class="info__card-item card-item">
-			<div class="card-item__img">
+		<a href="#" className="info__card-item card-item">
+			<div className="card-item__img">
 				<img src={props.img} alt="" />
 			</div>
-			<div class="card-item__content-wrapper">
-				<h3 class="card-item__title">
+			<div className="card-item__content-wrapper">
+				<h3 className="card-item__title">
 					{props.title}
 				</h3>
-				<p class="card-item__year">
+				<p className="card-item__year">
 					{props.year}
 				</p>
 			</div>
