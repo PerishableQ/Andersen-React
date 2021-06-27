@@ -6,7 +6,7 @@ function Footer(props) {
 		<footer className="footer">
 			<div className="vs-container">
 				<div className="footer__body">
-					<a href="#" className="footer__logo logo">
+					<a href="/" className="footer__logo logo">
 						<img src={logo} alt="logo" />
 					</a>
 					<div className="footer__copyright">All right reserved © 2021</div>

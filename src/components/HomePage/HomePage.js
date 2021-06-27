@@ -1,5 +1,6 @@
 import "./HomePage.css";
 import Card from "../Card/Card";
+import { Link } from "react-router-dom";
 
 function HomePage(props) {
 	return (
@@ -43,10 +44,24 @@ function HomePage(props) {
 
 				<ul className="info__card-container">
 					<li className="info__card-item-wrapper">
-						<Card img="#" title="Заголовок карточки" year="2005" isFavorite={false} />
+						<Link to="cardinfo">
+							<Card
+								img="#"
+								title="Заголовок карточки"
+								year="2005"
+								isFavorite={false}
+							/>
+						</Link>
 					</li>
 					<li className="info__card-item-wrapper">
-						<Card img="#" title="Заголовок карточки #2" year="2020" isFavorite={true} />
+						<Link to='cardinfo'>
+							<Card
+								img="#"
+								title="Заголовок карточки #2"
+								year="2020"
+								isFavorite={true}
+							/>
+						</Link>
 					</li>
 				</ul>
 			</div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Import JS
 import Header from "./components/Header/Header";
@@ -13,7 +14,6 @@ import CardInfo from "./components/CardInfo/CardInfo";
 import Favorites from "./components/Favorites/Favorites";
 import SearchHistory from "./components/SearchHistory/SearchHistory";
 
-
 // Import CSS
 import "./Reset.css";
 import "./App.css";
@@ -26,15 +26,17 @@ function App() {
 			<main className="page">
 				{/* Сюда кладем все компоненты кроме хедера и футера */}
 
-				<HomePage />
-			    <SearchResult />
-
- 				{/* <SignIn /> */}
- 				{/* <SignUp /> */}
- 				{/* <CardInfo /> */}
- 				{/* <Favorites /> */}
- 				<SearchHistory />
-
+				<Router>
+                   <Switch>
+						<Route path="/" exact component={HomePage}></Route>
+						<Route path="/favorites" component={Favorites}></Route>
+						<Route path="/searchhistory" component={SearchHistory}></Route>
+						<Route path="/searchresult" component={SearchResult}></Route>
+						<Route path="/signin" component={SignIn}></Route>
+						<Route path="/signup" component={SignUp}></Route>
+						<Route path="/cardinfo" component={CardInfo}></Route>
+					</Switch>
+				</Router>
 			</main>
 
 			<Footer />
