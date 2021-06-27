@@ -2,21 +2,21 @@ import "./CardInfo.css";
 
 function CardInfo() {
 	return (
-		<section class="card-inner section">
-			<div class="vs-container">
-				<div class="card-inner__wrapper">
-					<div class="card-inner__img-wrapper">
+		<section className="card-inner section">
+			<div className="vs-container">
+				<div className="card-inner__wrapper">
+					<div className="card-inner__img-wrapper">
 						<img src="img/testgallery/4.jpg" alt="#" />
 					</div>
 
-					<div class="card-inner__content-wrapper">
-						<h2 class="card-inner__title">Заголовок</h2>
-						<p class="card-inner__year">Год</p>
-						<p class="card-inner__desc">
+					<div className="card-inner__content-wrapper">
+						<h2 className="card-inner__title">Заголовок</h2>
+						<p className="card-inner__year">Год</p>
+						<p className="card-inner__desc">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
 							ullam
 						</p>
-						<p class="card-inner__desc">
+						<p className="card-inner__desc">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic non
 							distinctio ipsa praesentium odit minima perspiciatis, culpa at ab quis,
 							molestias incidunt dicta sequi. Sapiente fugiat iusto repellendus ea,

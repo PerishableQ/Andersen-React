@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import CardInfo from "./components/CardInfo/CardInfo";
+import Favorites from "./components/Favorites/Favorites";
 
 // Import CSS
 import "./Reset.css";
@@ -21,6 +22,7 @@ function App() {
                 {/* <SignIn /> */}
                 {/* <SignUp /> */}
                 {/* <CardInfo /> */}
+                <Favorites />
             </main>
 
 			<Footer />

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEE,AAAD,iBAAQ,CAAC;EACR,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,gBAAgB;CACxB",
+    "sources": [
+        "Favorites.scss"
+    ],
+    "names": [],
+    "file": "Favorites.css"
+}
