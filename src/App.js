@@ -2,6 +2,7 @@ import React from 'react';
 
 //Import JS
 import Header from './component/Header/Header';
+import Footer from './component/Footer/Footer';
 
 
 // Import CSS
@@ -20,7 +21,7 @@ function App() {
       </main>
 
 
-      {/* <Footer /> */}
+      <Footer />
 
 
     </div>
