@@ -1,0 +1,112 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
+.title {
+  font-size: 40px;
+  color: #fff;
+}
+
+.section {
+  padding: 80px 0px 0px 0px;
+}
+
+//<BUTTONS>====================================================================================================
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+
+  border-radius: 10px;
+  background-color: rgb(45, 13, 187);
+
+  font-size: 1.6rem;
+  color: #fff;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease 0s;
+
+  padding: 0px 20px;
+  margin: 0px 0px 20px 0px;
+
+  @media screen and (min-width: 768px) {
+    &:hover {
+      background-color: rgb(60, 73, 255);
+    }
+  }
+}
+
+.sec-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  border-radius: 10px;
+  background-color: rgb(255, 47, 20);
+
+  font-size: 1.6rem;
+  color: #fff;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+
+  // ie11fix
+  &:after {
+    content: "";
+    min-height: inherit;
+    font-size: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    &:hover {
+      background-color: rgb(207, 24, 0);
+    }
+  }
+}
+
+$minwidth: 320px;
+$container: 1440; /* КОНТЕЙНЕР */
+
+$xl: $container + 90; //md0
+$lg: 1190; //md1
+$md: 999.98; //md2
+$sm: 767.98; //md3
+$xs: 374.98; //md4
+
+$container_xl: 1140;
+$container_lg: 970;
+$container_md: 750;
+$container_sm: none;
+$container_xs: none;
+
+.vs-container {
+  max-width: $container + px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden; // изначально без ограничения, выше xl 1530 (1440 + 90)
+  @media screen and (max-width: $xl+px) {
+    max-width: 1140px;
+  } // если становится меньше 1530
+  @media screen and (max-width: $lg+px) {
+    max-width: $container_lg + px;
+  } // меньше 1190
+  @media screen and (max-width: $md+px) {
+    max-width: $container_md + px;
+  } // меньше 1000
+  @media screen and (max-width: $sm+px) {
+    max-width: $container_sm;
+    padding: 0 10px;
+  } // меньше 768
+  @media screen and (max-width: $xs+px) {
+    max-width: $container_xs;
+    padding: 0 10px;
+  } // меньше 375
+}
