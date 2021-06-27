@@ -1,6 +1,5 @@
-import "./SearchResult.css"
+import "./SearchResult.css";
 import Card from "../Card/Card";
-
 
 function SearchResult(props) {
 	return (
@@ -16,7 +15,6 @@ function SearchResult(props) {
 						<Card img="#" title="Заголовок карточки #2" year="2020" isFavorite={true} />
 					</li>
 				</ul>
-
 			</div>
 		</section>
 	);
