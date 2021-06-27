@@ -13,10 +13,10 @@ import './App.css'
 
 function App() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <Header />
 
-      <main class="page">
+      <main className="page">
         {/* Сюда кладем все компоненты кроме хедера и футера */}
 
       </main>

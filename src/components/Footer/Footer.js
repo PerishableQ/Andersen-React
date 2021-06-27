@@ -1,14 +1,16 @@
-import './Footer.css'
+import './Footer.css';
+import logo from '../../../src/assets/img/logo.png';
+
 
 function Footer(props) {
 	return (
-		<footer class="footer">
-			<div class="vs-container">
-				<div class="footer__body">
-					<a href="#" class="footer__logo logo">
-						<img src="img/logo.png" alt="logo" />
+		<footer className="footer">
+			<div className="vs-container">
+				<div className="footer__body">
+					<a href="#" className="footer__logo logo">
+						<img src={logo} alt="logo" />
 					</a>
-					<div class="footer__copyright">
+					<div className="footer__copyright">
 						All right reserved © 2021
 					</div>
 				</div>
