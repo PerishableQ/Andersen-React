@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEE,AAAD,sBAAQ,CAAC;EACR,MAAM,EAAE,gBAAgB;CACxB;;AAEA,AAAD,qBAAO,CAAC;EACP,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,eAAe;CAKvB;;AATA,AAMA,qBANM,AAML,MAAM,CAAC;EACP,KAAK,EAAE,IAAI;CACX",
+    "sources": [
+        "SearchHistory.scss"
+    ],
+    "names": [],
+    "file": "SearchHistory.css"
+}

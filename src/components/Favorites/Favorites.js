@@ -1,4 +1,4 @@
-import './Favorites.css';
+import "./Favorites.css";
 
 function Favorites(props) {
 	return (
@@ -8,7 +8,7 @@ function Favorites(props) {
 
 				<ul className="info__card-container">
 					{/* import Card component here */}
-                    Card component
+					Card component
 				</ul>
 			</div>
 		</section>

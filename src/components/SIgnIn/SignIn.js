@@ -1,6 +1,6 @@
 import "./SignIn.css";
 
-export default function SignIn(props) {
+function SignIn(props) {
 	return (
 		<section className="auth section">
 			<div className="vs-container">
@@ -53,3 +53,5 @@ export default function SignIn(props) {
 		</section>
 	);
 }
+
+export default SignIn;

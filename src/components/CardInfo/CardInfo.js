@@ -1,6 +1,6 @@
 import "./CardInfo.css";
 
-function CardInfo() {
+function CardInfo(props) {
 	return (
 		<section className="card-inner section">
 			<div className="vs-container">

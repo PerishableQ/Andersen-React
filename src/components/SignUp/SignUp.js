@@ -1,6 +1,6 @@
-import './SignUp.css';
+import "./SignUp.css";
 
-function SignUp() {
+function SignUp(props) {
 	return (
 		<section className="register section">
 			<div className="vs-container">
