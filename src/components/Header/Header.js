@@ -3,26 +3,25 @@ import logo from '../../../src/assets/img/logo.png'
 
 function Header(props) {
 	return (
-		<header class="header">
-			<div class="vs-container">
-				<div class="header__body">
+		<header className="header">
+			<div className="vs-container">
+				<div className="header__body">
 
-					<a href="#" class="header__logo logo">
+					<a href="#" className="header__logo logo">
 						<img src={logo} alt="logo" />
 					</a>
 
-
-					<nav class="header-menu">
-						<ul class="header-menu__list">
-							<li><a href="#" class="header-menu__link">Favorites</a></li>
-							<li><a href="#" class="header-menu__link">Search History</a></li>
+					<nav className="header-menu">
+						<ul className="header-menu__list">
+							<li><a href="#" className="header-menu__link">Favorites</a></li>
+							<li><a href="#" className="header-menu__link">Search History</a></li>
 						</ul>
 					</nav>
 
-					<div class="header-account">
-						<button type="button" class="header-account__btn">Вход</button>
-						<div class="header-account__spleeter"></div>
-						<button type="button" class="header-account__btn">Регистрация</button>
+					<div className="header-account">
+						<button type="button" className="header-account__btn">Вход</button>
+						<div className="header-account__spleeter"></div>
+						<button type="button" className="header-account__btn">Регистрация</button>
 					</div>
 
 
