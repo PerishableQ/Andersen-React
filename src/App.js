@@ -3,6 +3,7 @@ import React from 'react';
 //Import JS
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import HomePage from './components/HomePage/HomePage';
 
 
 // Import CSS
@@ -17,7 +18,7 @@ function App() {
 
       <main className="page">
         {/* Сюда кладем все компоненты кроме хедера и футера */}
-
+        <HomePage />
       </main>
 
 
