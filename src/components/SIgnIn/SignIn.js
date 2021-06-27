@@ -1,18 +1,18 @@
-import './SignIn.css';
+import "./SignIn.css";
 
-export default function SignIn() {
+export default function SignIn(props) {
 	return (
-		<section class="auth section">
-			<div class="vs-container">
-				<div class="auth__form">
-					<form action="#" method="POST" class="auth-form">
-						<div class="auth-form__title-wrapper">
-							<h2 class="auth-form__title">Войти в систему</h2>
+		<section className="auth section">
+			<div className="vs-container">
+				<div className="auth__form">
+					<form action="#" method="POST" className="auth-form">
+						<div className="auth-form__title-wrapper">
+							<h2 className="auth-form__title">Войти в систему</h2>
 						</div>
 
-						<div class="auth__field-wrapper">
-							<div class="auth-form__field-wrapper">
-								<label for="auth-name-id" class="auth-form__label">
+						<div className="auth__field-wrapper">
+							<div className="auth-form__field-wrapper">
+								<label for="auth-name-id" className="auth-form__label">
 									{" "}
 									Введите логин
 								</label>
@@ -22,12 +22,12 @@ export default function SignIn() {
 									name="auth-name"
 									placeholder="Логин"
 									id="auth-name-id"
-									class="auth-form__input input"
+									className="auth-form__input input"
 								/>
 							</div>
 
-							<div class="auth-form__field-wrapper">
-								<label for="auth-pass-id" class="auth-form__label">
+							<div className="auth-form__field-wrapper">
+								<label for="auth-pass-id" className="auth-form__label">
 									{" "}
 									Введите пароль
 								</label>
@@ -37,13 +37,13 @@ export default function SignIn() {
 									name="auth-pass"
 									placeholder="Пароль"
 									id="auth-pass-id"
-									class="auth-form__input input"
+									className="auth-form__input input"
 								/>
 							</div>
 						</div>
 
-						<div class="section-form__buttons">
-							<button type="submit" class="btn">
+						<div className="section-form__buttons">
+							<button type="submit" className="btn">
 								Войти
 							</button>
 						</div>
