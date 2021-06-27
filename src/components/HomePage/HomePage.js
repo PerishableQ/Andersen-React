@@ -1,6 +1,6 @@
 import "./HomePage.css";
 import Card from "../Card/Card";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function HomePage(props) {
 	return (
@@ -17,7 +17,7 @@ function HomePage(props) {
 							className="info-searh_input"
 						/>
 						<button type="submit" className="btn">
-							Искать
+							Search
 						</button>
 					</div>
 				</div>
@@ -54,7 +54,7 @@ function HomePage(props) {
 						</Link>
 					</li>
 					<li className="info__card-item-wrapper">
-						<Link to='cardinfo'>
+						<Link to="cardinfo">
 							<Card
 								img="#"
 								title="Заголовок карточки #2"

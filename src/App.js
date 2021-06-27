@@ -21,13 +21,13 @@ import "./App.css";
 function App() {
 	return (
 		<div className="wrapper">
-			<Header />
+			<Router>
+				<Header />
 
-			<main className="page">
-				{/* Сюда кладем все компоненты кроме хедера и футера */}
+				<main className="page">
+					{/* Сюда кладем все компоненты кроме хедера и футера */}
 
-				<Router>
-                   <Switch>
+					<Switch>
 						<Route path="/" exact component={HomePage}></Route>
 						<Route path="/favorites" component={Favorites}></Route>
 						<Route path="/searchhistory" component={SearchHistory}></Route>
@@ -36,10 +36,10 @@ function App() {
 						<Route path="/signup" component={SignUp}></Route>
 						<Route path="/cardinfo" component={CardInfo}></Route>
 					</Switch>
-				</Router>
-			</main>
+				</main>
 
-			<Footer />
+				<Footer />
+			</Router>
 		</div>
 	);
 }
