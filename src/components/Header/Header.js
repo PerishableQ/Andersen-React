@@ -1,8 +1,9 @@
 import "./Header.css";
-import logo from "../../../src/assets/img/logo.png";
+import logo from "../../../src/assets/img/logo2.png";
 import { Link } from "react-router-dom";
 
 function Header(props) {
+<<<<<<< HEAD
   let a = false;
   return (
     <header className="header">
@@ -13,6 +14,17 @@ function Header(props) {
               <img src={logo} alt="logo" />
             </Link>
           </nav>
+=======
+	return (
+		<header className="header">
+			<div className="vs-container">
+				<div className="header__body">
+					<nav>
+						<Link to="/" className="header__logo logo">
+							<img src={logo} alt="logo" style={{width: '300px', height: '150px'}} />
+						</Link>
+					</nav>
+>>>>>>> origin/fetch
 
           <nav className="header-menu">
             <ul className="header-menu__list">

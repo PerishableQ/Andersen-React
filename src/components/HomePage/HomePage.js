@@ -1,68 +1,50 @@
 import "./HomePage.css";
+import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../Card/Card";
-import { Link, pathname } from "react-router-dom";
+import SearchBar from "./SearchBar/SearchBar";
 
 function HomePage(props) {
+	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
+	const BASE_URL = "https://api.themoviedb.org/3/";
+	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
+
+	const [data, setData] = React.useState([]);
+
+	React.useEffect(() => {
+		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
+
+		fetch(popularMoviesUrl)
+			.then(response => response.json())
+			.then(data => setData(data.results));
+	}, []);
+
+	console.log(data);
+
 	return (
 		<section className="info section">
 			<div className="vs-container">
-				<div className="info-search">
-					<div className="info-searh__input-wrapper">
-						<input
-							autocomplete="off"
-							type="text"
-							name="search"
-							placeholder="Введите название"
-							id="input_id"
-							className="info-searh_input"
-						/>
-						<button type="submit" className="btn">
-							Search
-						</button>
-					</div>
-				</div>
-				<div className="info-header">
-					<h1 className="info__title title">Все категории</h1>
-					<div className="info-navigation">
-						<a href="#" className="info-navigation__link active">
-							Все категории
-						</a>
-						<a href="#" className="info-navigation__link">
-							Актеры
-						</a>
-						<a href="#" className="info-navigation__link">
-							Эпизоды
-						</a>
-						<a href="#" className="info-navigation__link">
-							Пункт 4
-						</a>
-						<a href="#" className="info-navigation__link">
-							Пункт 5
-						</a>
-					</div>
-				</div>
+				<SearchBar />
 
 				<ul className="info__card-container">
-					<li className="info__card-item-wrapper">
-						<Link to={{ pathname: "/cardinfo", props: ["lol", "anather lol"] }}>
-							<Card
-								img="#"
-								title="Заголовок карточки"
-								year="2005"
-								isFavorite={false}
-							/>
-						</Link>
-					</li>
-					<li className="info__card-item-wrapper">
-						<Link to="cardinfo">
-							<Card
-								img="#"
-								title="Заголовок карточки #2"
-								year="2020"
-								isFavorite={true}
-							/>
-						</Link>
-					</li>
+					{data.map(card => {
+						return (
+							<li className="info__card-item-wrapper" key={card.id}>
+								<Link to="cardinfo">
+									<Card
+										img={BASE_IMG_URL + card.poster_path}
+										title={card.original_title}
+										year={
+											card.release_date === undefined
+												? "No year provided"
+												: card.release_date
+										}
+										isFavorite={false}
+									/>
+								</Link>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</section>
