@@ -1,7 +1,7 @@
 .card-item {
   display: block;
   position: relative;
-  min-height: 250px;
+  min-height: 500px;
 }
 
 .card-item:hover .card-item__img:after {

@@ -5,7 +5,7 @@ function NotInFavorite() {
 		<div className="card-item__favorite-icon">
 			<svg
 				id="Capa_1"
-				enable-background="new 0 0 512.07 512.07"
+				enableBackground="new 0 0 512.07 512.07"
 				height="512"
 				viewBox="0 0 512.07 512.07"
 				width="512"

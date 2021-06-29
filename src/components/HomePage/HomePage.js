@@ -1,35 +1,53 @@
 import "./HomePage.css";
+import React from "react";
+import { Link } from "react-router-dom";
 import Card from "../Card/Card";
-import {Link} from 'react-router-dom';
 import SearchBar from "./SearchBar/SearchBar";
 
 function HomePage(props) {
+	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
+	const BASE_URL = "https://api.themoviedb.org/3/";
+    const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
+
+	const [data, setData] = React.useState([]);
+
+	React.useEffect(() => {
+		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
+		fetch(popularMoviesUrl)
+			.then(response => response.json())
+			.then(data => setData(data.results));
+	}, []);
+
+	console.log(data);
+
+	React.useEffect(() => {
+		fetch(
+			`${BASE_URL}configuration?api_key=${API_KEY}`
+		)
+			.then(response => response.json())
+			.then(data => console.log(data));
+	}, []);
+
 	return (
 		<section className="info section">
 			<div className="vs-container">
 				<SearchBar />
 
 				<ul className="info__card-container">
-					<li className="info__card-item-wrapper">
-						<Link to="cardinfo">
-							<Card
-								img="#"
-								title="Заголовок карточки"
-								year="2005"
-								isFavorite={false}
-							/>
-						</Link>
-					</li>
-					<li className="info__card-item-wrapper">
-						<Link to="cardinfo">
-							<Card
-								img="#"
-								title="Заголовок карточки #2"
-								year="2020"
-								isFavorite={true}
-							/>
-						</Link>
-					</li>
+					{data.map(el => {
+						return (
+							<li className="info__card-item-wrapper" key={el.id}>
+								<Link to="cardinfo">
+									<Card
+										img={BASE_IMG_URL+ el.poster_path}
+										title={el.original_title}
+										year={el.release_date}
+										isFavorite={false}
+									/>
+								</Link>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</section>

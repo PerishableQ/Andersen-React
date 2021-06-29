@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../../src/assets/img/logo.png";
+import logo from "../../../src/assets/img/logo2.png";
 import { Link } from "react-router-dom";
 
 function Header(props) {
@@ -9,7 +9,7 @@ function Header(props) {
 				<div className="header__body">
 					<nav>
 						<Link to="/" className="header__logo logo">
-							<img src={logo} alt="logo" />
+							<img src={logo} alt="logo" style={{width: '300px', height: '150px'}} />
 						</Link>
 					</nav>
 
