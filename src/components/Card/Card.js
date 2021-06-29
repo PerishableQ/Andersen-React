@@ -1,6 +1,5 @@
 import "./Card.css";
-import AddedToFavorite from "./FavoriteIcon/AddedToFavorite";
-import NotInFavorite from "./FavoriteIcon/NotInFavorite";
+import FavoritesIcon from "./FavoriteIcon/FavoritesIcon";
 
 function Card(props) {
 	return (
@@ -12,7 +11,7 @@ function Card(props) {
 				<h3 className="card-item__title">{props.title}</h3>
 				<p className="card-item__year">{props.year}</p>
 			</div>
-			{props.isFavorite ? <AddedToFavorite /> : <NotInFavorite />}
+			<FavoritesIcon />
 		</div>
 	);
 }
