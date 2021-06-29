@@ -1,31 +1,22 @@
 import "./CardInfo.css";
 
 function CardInfo(props) {
+	const filmData = props.location.props;
+    
 	return (
 		<section className="card-inner section">
 			<div className="vs-container">
 				<div className="card-inner__wrapper">
 					<div className="card-inner__img-wrapper">
-						<img src="img/testgallery/4.jpg" alt="#" />
+						<img src={"https://image.tmdb.org/t/p/w342" + filmData.poster_path} alt="#" />
 					</div>
 
 					<div className="card-inner__content-wrapper">
-						<h2 className="card-inner__title">Заголовок</h2>
-						<p className="card-inner__year">Год</p>
+						<h2 className="card-inner__title">{filmData.title}</h2>
+						<p className="card-inner__year">{filmData.release_date}</p>
+						<p className="card-inner__desc">{filmData.overview}</p>
 						<p className="card-inner__desc">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-							ullam
-						</p>
-						<p className="card-inner__desc">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic non
-							distinctio ipsa praesentium odit minima perspiciatis, culpa at ab quis,
-							molestias incidunt dicta sequi. Sapiente fugiat iusto repellendus ea,
-							voluptate sint quisquam temporibus! Ut debitis minus enim, odit ipsam
-							ipsa, voluptate quaerat numquam non amet vero nesciunt, quidem earum
-							perspiciatis iure neque molestiae dolor quisquam cumque. Et assumenda
-							voluptatem laborum nostrum fuga delectus iusto, praesentium maxime
-							repellat. Vitae qui quia officiis a! Inventore harum repudiandae error
-							sit enim, repellat aliquid.
+							Rating: {filmData.vote_average}
 						</p>
 					</div>
 				</div>

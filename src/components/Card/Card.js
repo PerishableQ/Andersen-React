@@ -4,7 +4,7 @@ import NotInFavorite from "./FavoriteIcon/NotInFavorite";
 
 function Card(props) {
 	return (
-		<div className="info__card-item card-item">
+		<div className="info__card-item card-item" id = {props.id}>
 			<div className="card-item__img">
 				<img src={props.img} alt="" />
 			</div>
