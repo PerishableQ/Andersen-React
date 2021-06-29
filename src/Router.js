@@ -1,10 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //Import JS
-// import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
-
 import HomePage from "./components/HomePage/HomePage";
 import SearchResult from "./components/SearchResult/SearchResult";
 
