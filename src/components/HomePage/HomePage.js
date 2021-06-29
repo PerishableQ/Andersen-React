@@ -1,6 +1,6 @@
 import "./HomePage.css";
 import Card from "../Card/Card";
-import {Link} from 'react-router-dom';
+import { Link, pathname } from "react-router-dom";
 
 function HomePage(props) {
 	return (
@@ -44,7 +44,7 @@ function HomePage(props) {
 
 				<ul className="info__card-container">
 					<li className="info__card-item-wrapper">
-						<Link to="cardinfo">
+						<Link to={{ pathname: "/cardinfo", props: ["lol", "anather lol"] }}>
 							<Card
 								img="#"
 								title="Заголовок карточки"
