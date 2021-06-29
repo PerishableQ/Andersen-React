@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import addMoviesList from "../../redux/actions";
 
 function HomePage(props) {
@@ -14,7 +14,6 @@ function HomePage(props) {
 
 	const [data, setData] = React.useState([]);
 	const dispatch = useDispatch();
-	useSelector(store => console.log(store));
 
 	React.useEffect(() => {
 		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
@@ -27,8 +26,6 @@ function HomePage(props) {
 	React.useEffect(() => {
 		dispatch(addMoviesList(data));
 	});
-
-    console.log(data.films);
     
 	return (
 		<section className="info section">

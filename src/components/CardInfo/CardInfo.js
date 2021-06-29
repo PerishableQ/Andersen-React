@@ -1,23 +1,36 @@
 import "./CardInfo.css";
 
 function CardInfo(props) {
-	const filmData = props.location.props;
-    
+	const data = props.location.props;
+
+	if (data !== undefined) {
+		localStorage.setItem(
+			"stateCardInfo",
+			JSON.stringify({
+				poster_path: data.poster_path,
+				title: data.title,
+				release_date: data.release_date,
+				overview: data.overview,
+				vote_average: data.vote_average
+			})
+		);
+	}
+
+	const state = JSON.parse(localStorage.getItem("stateCardInfo"));
+
 	return (
 		<section className="card-inner section">
 			<div className="vs-container">
 				<div className="card-inner__wrapper">
 					<div className="card-inner__img-wrapper">
-						<img src={"https://image.tmdb.org/t/p/w342" + filmData.poster_path} alt="#" />
+						<img src={"https://image.tmdb.org/t/p/w342" + state.poster_path} alt="#" />
 					</div>
 
 					<div className="card-inner__content-wrapper">
-						<h2 className="card-inner__title">{filmData.title}</h2>
-						<p className="card-inner__year">{filmData.release_date}</p>
-						<p className="card-inner__desc">{filmData.overview}</p>
-						<p className="card-inner__desc">
-							Rating: {filmData.vote_average}
-						</p>
+						<h2 className="card-inner__title">{state.title}</h2>
+						<p className="card-inner__year">{state.release_date}</p>
+						<p className="card-inner__desc">{state.overview}</p>
+						<p className="card-inner__desc">Rating: {state.vote_average}</p>
 					</div>
 				</div>
 			</div>
@@ -26,3 +39,11 @@ function CardInfo(props) {
 }
 
 export default CardInfo;
+
+/* {
+        'poster_path': data.poster_path,
+        'title': data.title,
+        'release_date': data.release_date,
+        'overview': data.overview,
+        'vote_average': data.vote_average
+    } */
