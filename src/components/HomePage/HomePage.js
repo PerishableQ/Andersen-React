@@ -28,6 +28,8 @@ function HomePage(props) {
 		dispatch(addMoviesList(data));
 	});
 
+    console.log(data.films);
+    
 	return (
 		<section className="info section">
 			<div className="vs-container">

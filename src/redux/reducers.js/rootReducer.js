@@ -1,13 +1,20 @@
 import { ADD_LIST_TO_STORE } from "../action-types";
 
-function rootReducer(state = [], action) {
+const initialState = {
+    films: []
+}
+
+function addFilmToStore(state = initialState, action) {
 	switch (action.type) {
 		case ADD_LIST_TO_STORE:
-			return [...action.payload];
+			return {
+                ...state,
+                films: action.payload
+            };
 
 		default:
 			return state;
 	}
 }
 
-export default rootReducer;
+export default addFilmToStore;
