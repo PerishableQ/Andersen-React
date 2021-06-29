@@ -7,26 +7,19 @@ import SearchBar from "./SearchBar/SearchBar";
 function HomePage(props) {
 	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
 	const BASE_URL = "https://api.themoviedb.org/3/";
-    const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
+	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
 
 	const [data, setData] = React.useState([]);
 
 	React.useEffect(() => {
 		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
-		fetch(popularMoviesUrl)
+		
+        fetch(popularMoviesUrl)
 			.then(response => response.json())
 			.then(data => setData(data.results));
 	}, []);
 
-	console.log(data);
-
-	React.useEffect(() => {
-		fetch(
-			`${BASE_URL}configuration?api_key=${API_KEY}`
-		)
-			.then(response => response.json())
-			.then(data => console.log(data));
-	}, []);
+    console.log(data);
 
 	return (
 		<section className="info section">
@@ -34,14 +27,14 @@ function HomePage(props) {
 				<SearchBar />
 
 				<ul className="info__card-container">
-					{data.map(el => {
+					{data.map(card => {
 						return (
-							<li className="info__card-item-wrapper" key={el.id}>
+							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to="cardinfo">
 									<Card
-										img={BASE_IMG_URL+ el.poster_path}
-										title={el.original_title}
-										year={el.release_date}
+										img={BASE_IMG_URL + card.poster_path}
+										title={card.original_title}
+										year={card.release_date === undefined ? 'No year provided' : card.release_date}
 										isFavorite={false}
 									/>
 								</Link>
