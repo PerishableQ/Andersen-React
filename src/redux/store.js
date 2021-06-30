@@ -1,18 +1,5 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import addFilmListToStore from "./reducers.js/addFilmListToStore";
-import addFilmToFavorites from "./reducers.js/addFilmToFavorites";
+import { createStore } from "@reduxjs/toolkit";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { rootReducer } from "./reducers/index";
 
-export const initialState = {
-	films: [],
-	addedToFavorites: false,
-	favorites: []
-};
-
-const rootReducer = combineReducers({
-    addFilmToFavorites,
-    addFilmListToStore
-})
-
-export const store = configureStore({
-	reducer: rootReducer
-});
+export const store = createStore(rootReducer, composeWithDevTools());

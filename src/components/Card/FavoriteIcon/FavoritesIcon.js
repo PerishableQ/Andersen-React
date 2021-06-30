@@ -2,30 +2,21 @@ import "../Card.css";
 import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addFilmToFavorites } from "../../../redux/actions";
+import { addFavorite } from "../../../redux/actions";
 
 function FavoritesIcon(props) {
 	const [favorite, setFavorite] = useState(false);
-    const [favoritesArr, setFavoritesArr] = useState(useSelector(store => store.addFilmListToStore.favorites));    
 
     const dispatch = useDispatch();
-    // useEffect(() => {
-        
-    // })
 
-	function log(event) {
+	function handleAddToFavorite(event) {
 		event.preventDefault();
         setFavorite(!favorite)
-        setFavoritesArr(dispatch(addFilmToFavorites(props.index)))
+        dispatch(addFavorite(props.index))
 	}
 
-    console.log(favoritesArr);
-
-    const state = useSelector(state => state);
-    console.log(state);
-
 	return (
-		<div className="card-item__favorite-icon" onClick={log}>
+		<div className="card-item__favorite-icon" onClick={handleAddToFavorite}>
 			{favorite ? (
 				<svg
 					id="Capa_1"

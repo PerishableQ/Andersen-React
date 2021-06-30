@@ -4,7 +4,7 @@ function CardInfo(props) {
 	const data = props.location.props;
 
 	if (data !== undefined) {
-		localStorage.setItem(
+		sessionStorage.setItem(
 			"stateCardInfo",
 			JSON.stringify({
 				poster_path: data.poster_path,
@@ -16,7 +16,7 @@ function CardInfo(props) {
 		);
 	}
 
-	const state = JSON.parse(localStorage.getItem("stateCardInfo"));
+	const state = JSON.parse(sessionStorage.getItem("stateCardInfo"));
 
 	return (
 		<section className="card-inner section">

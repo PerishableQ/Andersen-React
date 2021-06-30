@@ -1,7 +1,4 @@
-export function addMoviesList(payload) {
-	return { type: "ADD_LIST_TO_STORE", payload };
-}
+import { createAction } from "@reduxjs/toolkit";
 
-export function addFilmToFavorites(payload) {
-	return { type: "IN_VAFORITE", payload };
-}
+export const addFilm = createAction("ADD_FILM");
+export const addFavorite = createAction("ADD_FAVORITE");

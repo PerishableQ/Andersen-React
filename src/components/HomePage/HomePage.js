@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
-import { useDispatch } from "react-redux";
-import { addMoviesList } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { addFilm } from "../../redux/actions";
 
 function HomePage(props) {
 	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
@@ -24,7 +24,7 @@ function HomePage(props) {
 	}, []);
 
 	React.useEffect(() => {
-		dispatch(addMoviesList(data));
+		dispatch(addFilm(data));
 	});
 
 	return (
