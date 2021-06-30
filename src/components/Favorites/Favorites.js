@@ -11,25 +11,26 @@ function Favorites(props) {
 		state.favorites.token
 	]);
 
-    const sessionToken = '1230390934aslkdfho124324';
+	const sessionToken = "1230390934aslkdfho124324";
 	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
-    
-    const dispatch = useDispatch();
-    const state = JSON.parse(localStorage.getItem("favorites"));
+
+	const dispatch = useDispatch();
 
 	if (token === sessionToken) {
-        if (favoritesState.length === 0) {
-            dispatch(addFavorite(state));
-        }
+		if (favoritesState.length === 0) {
+			dispatch(addFavorite(JSON.parse(localStorage.getItem("favorites"))));
+		}
 
 		if (favoritesState.length !== 0) {
-            localStorage.setItem("favorites", JSON.stringify(favoritesState));
-        }
+			localStorage.setItem("favorites", JSON.stringify(favoritesState));
+		}
 
 		localStorage.setItem("userToken", JSON.stringify(token));
 	}
 
-    const getFavoritesDataFromLS =
+	const state = JSON.parse(localStorage.getItem("favorites"));
+
+	const getFavoritesDataFromLS =
 		JSON.parse(localStorage.getItem("favorites")) === null
 			? []
 			: JSON.parse(localStorage.getItem("favorites"));
@@ -37,7 +38,11 @@ function Favorites(props) {
 	const filmId = getFavoritesDataFromLS.map(film => {
 		return film.id;
 	});
-	
+
+	function log(event) {
+		console.log(event.target);
+	}
+
 	return (
 		<section className="favorites section">
 			<div className="vs-container">
@@ -46,7 +51,7 @@ function Favorites(props) {
 				<ul className="info__card-container">
 					{state.map((card, index) => {
 						return (
-							<li className="info__card-item-wrapper" key={card.id}>
+							<li className="info__card-item-wrapper" key={card.id} onClick={log}>
 								<Link to={{ pathname: "/cardinfo", props: state[index] }}>
 									<Card
 										id={card.id}
@@ -58,9 +63,8 @@ function Favorites(props) {
 												: card.release_date
 										}
 										isFavorite={filmId.some(el => {
-                                            return card.id === el;
-                                        }
-										)}
+											return card.id === el;
+										})}
 									/>
 								</Link>
 							</li>
