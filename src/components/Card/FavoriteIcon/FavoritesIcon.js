@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFavorite } from "../../../redux/actions";
 
 function FavoritesIcon(props) {
-	const [favorite, setFavorite] = useState(false);
-
+	const [favorite, setFavorite] = useState(props.isFavorite);
+    console.log(props);
     const dispatch = useDispatch();
 
 	function handleAddToFavorite(event) {

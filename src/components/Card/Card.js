@@ -11,7 +11,7 @@ function Card(props) {
 				<h3 className="card-item__title">{props.title}</h3>
 				<p className="card-item__year">{props.year}</p>
 			</div>
-			<FavoritesIcon index={props.index} />
+			<FavoritesIcon index={props.index} isFavorite={props.isFavorite} />
 		</div>
 	);
 }

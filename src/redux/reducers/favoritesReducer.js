@@ -1,6 +1,7 @@
 const initialState = {
     favorites: [], 
-    token: '1230390934aslkdfho124324'
+    token: '1230390934aslkdfho124324',
+    inFavorites: false
 };
 
 export function favoritesReducer(state = initialState, action) {
@@ -8,7 +9,8 @@ export function favoritesReducer(state = initialState, action) {
         case 'ADD_FAVORITE': 
             return {
                 ...state,
-                favorites: state.favorites.concat(action.payload)
+                favorites: state.favorites.concat(action.payload),
+                inFavorites: true
             }
 
         default:
