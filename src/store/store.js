@@ -1,5 +1,4 @@
 import { combineReducers, createStore } from "redux";
-// import {  applyMiddleware } from "redux";
 
 import isLogReducer from "./reducers/isLogReducer";
 import favoritesReducer from "./reducers/favoritesReducer";

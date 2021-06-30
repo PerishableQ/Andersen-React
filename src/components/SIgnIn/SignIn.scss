@@ -16,11 +16,16 @@
 		font-size: 24px;
 		margin: 0px 0px 15px 0px;
 	}
-	// .section-form__buttons
-	&__buttons {
+	.section-form__buttons {
+
+		.btn:disabled {
+			background-color: gray;
+			cursor: auto;
+		}
 	}
 	// .section-form__btn
 	&__btn {
+		
 	}
 	// .auth-form__field-wrapper
 	&__field-wrapper {

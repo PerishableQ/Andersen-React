@@ -10,8 +10,4 @@ const action_logout = () => {
 	};
 };
 
-// const unLog = () => {
-// 	dispatch({ type: "LOGOUT" });
-// };
-
 export { action_login, action_logout };

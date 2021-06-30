@@ -1,7 +1,3 @@
-// const defaultState = {
-//    false,
-// };
-
 function reducer(state = false, action) {
 	console.log(action.type);
 	switch (action.type) {

@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 import AppRouter from "./Router";
 
@@ -31,19 +31,19 @@ function App() {
 	// 		});
 	// }, []);
 
-	const dispatch = useDispatch();
-	const isLoggedIn = useSelector(state => state.isLoggedIn);
-	const favoritesMovie = useSelector(state => state.favorites);
+	// const dispatch = useDispatch();
+	// const isLoggedIn = useSelector(state => state.isLoggedIn);
+	// const favoritesMovie = useSelector(state => state.favorites);
 
-	const onFav = str => {
-		dispatch({ type: "ADD", movieName: str });
-		console.log("Любимые фильмы", favoritesMovie);
-	};
+	// const onFav = str => {
+	// 	dispatch({ type: "ADD", movieName: str });
+	// 	console.log("Любимые фильмы", favoritesMovie);
+	// };
 
-	const unFav = str => {
-		dispatch({ type: "SUB", movieName: str });
-		console.log("Любимые фильмы", favoritesMovie);
-	};
+	// const unFav = str => {
+	// 	dispatch({ type: "SUB", movieName: str });
+	// 	console.log("Любимые фильмы", favoritesMovie);
+	// };
 
 	return (
 		<div className="wrapper">
