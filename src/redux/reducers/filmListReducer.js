@@ -1,7 +1,7 @@
 // import { createReducer } from "@reduxjs/toolkit";
 
 const initialState = {
-	films: [1, 2]
+	films: []
 };
 
 export function filmListReducer(state = initialState, action) {

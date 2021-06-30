@@ -36,8 +36,6 @@ function HomePage(props) {
 		return film.id;
 	});
 
-	console.log(filmId.some(el => el));
-
 	return (
 		<section className="info section">
 			<div className="vs-container">
