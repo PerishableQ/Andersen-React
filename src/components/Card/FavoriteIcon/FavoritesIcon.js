@@ -1,17 +1,32 @@
 import "../Card.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function NotInFavorite() {
-	const [favorites, setFavorites] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+import { addFilmToFavorites } from "../../../redux/actions";
+
+function FavoritesIcon(props) {
+	const [favorite, setFavorite] = useState(false);
+    const [favoritesArr, setFavoritesArr] = useState(useSelector(store => store.addFilmListToStore.favorites));    
+
+    const dispatch = useDispatch();
+    // useEffect(() => {
+        
+    // })
 
 	function log(event) {
 		event.preventDefault();
-        setFavorites(!favorites)
+        setFavorite(!favorite)
+        setFavoritesArr(dispatch(addFilmToFavorites(props.index)))
 	}
+
+    console.log(favoritesArr);
+
+    const state = useSelector(state => state);
+    console.log(state);
 
 	return (
 		<div className="card-item__favorite-icon" onClick={log}>
-			{favorites ? (
+			{favorite ? (
 				<svg
 					id="Capa_1"
 					enableBackground="new 0 0 512.07 512.07"
@@ -42,4 +57,4 @@ function NotInFavorite() {
 	);
 }
 
-export default NotInFavorite;
+export default FavoritesIcon;

@@ -1,5 +1,7 @@
-import { ADD_LIST_TO_STORE } from "./action-types";
+export function addMoviesList(payload) {
+	return { type: "ADD_LIST_TO_STORE", payload };
+}
 
-export default function addMoviesList(payload) {
-	return { type: ADD_LIST_TO_STORE, payload };
+export function addFilmToFavorites(payload) {
+	return { type: "IN_VAFORITE", payload };
 }

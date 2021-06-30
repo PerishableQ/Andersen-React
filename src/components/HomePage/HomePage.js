@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
 import { useDispatch } from "react-redux";
-import addMoviesList from "../../redux/actions";
+import { addMoviesList } from "../../redux/actions";
 
 function HomePage(props) {
 	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
@@ -26,7 +26,7 @@ function HomePage(props) {
 	React.useEffect(() => {
 		dispatch(addMoviesList(data));
 	});
-    
+
 	return (
 		<section className="info section">
 			<div className="vs-container">
@@ -47,6 +47,7 @@ function HomePage(props) {
 												: card.release_date
 										}
 										isFavorite = {false}
+                                        index={data[index]}
 									/>
 								</Link>
 							</li>

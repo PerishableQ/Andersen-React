@@ -1,9 +1,8 @@
 import { initialState } from "../store";
-import { IN_FAVORITE } from "../action-types";
 
 function addFilmToFavorites(state = initialState, action) {
 	switch (action.type) {
-		case IN_FAVORITE:
+		case "IN_FAVORITE":
 			return {
 				...state,
 				addedToFavorites: true,

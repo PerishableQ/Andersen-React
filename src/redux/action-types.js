@@ -1,1 +1,0 @@
-export const ADD_LIST_TO_STORE = 'ADD_LIST_TO_STORE';
