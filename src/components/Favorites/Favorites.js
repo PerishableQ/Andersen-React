@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Favorites.css";
 
 function Favorites(props) {
-	const [favoritesState, token, inFavorites] = useSelector(state => [
+	const [favoritesState, token] = useSelector(state => [
 		state.favorites.favorites,
-		state.favorites.token,
-        state.favorites.inFavorites
+		state.favorites.token
 	]);
+
+    console.log(props);
 
     const sessionToken = '1230390934aslkdfho124324';
 
@@ -25,6 +26,14 @@ function Favorites(props) {
 
 	const state = JSON.parse(localStorage.getItem("favorites"));
 
+    const getFavoritesDataFromLS =
+		JSON.parse(localStorage.getItem("favorites")) === null
+			? []
+			: JSON.parse(localStorage.getItem("favorites"));
+
+	const filmId = getFavoritesDataFromLS.map(film => {
+		return film.id;
+	});
 	
 	return (
 		<section className="favorites section">
@@ -45,7 +54,10 @@ function Favorites(props) {
 												? "Coming soon"
 												: card.release_date
 										}
-										isFavorite={inFavorites}
+										isFavorite={filmId.some(el => {
+                                            return card.id === el;
+                                        }
+										)}
 									/>
 								</Link>
 							</li>

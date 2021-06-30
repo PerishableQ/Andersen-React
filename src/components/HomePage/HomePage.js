@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addFilm } from "../../redux/actions";
 
 function HomePage(props) {
@@ -27,6 +27,17 @@ function HomePage(props) {
 		dispatch(addFilm(data));
 	});
 
+	const getFavoritesDataFromLS =
+		JSON.parse(localStorage.getItem("favorites")) === null
+			? []
+			: JSON.parse(localStorage.getItem("favorites"));
+
+	const filmId = getFavoritesDataFromLS.map(film => {
+		return film.id;
+	});
+
+	console.log(filmId.some(el => el));
+
 	return (
 		<section className="info section">
 			<div className="vs-container">
@@ -36,18 +47,21 @@ function HomePage(props) {
 					{data.map((card, index) => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
-								<Link to={{pathname: '/cardinfo', props: data[index]}}>
+								<Link to={{ pathname: "/cardinfo", props: data[index] }}>
 									<Card
-										id = {card.id}
-										img = {BASE_IMG_URL + card.poster_path}
-										title = {card.original_title}
-										year = {
+										id={card.id}
+										img={BASE_IMG_URL + card.poster_path}
+										title={card.original_title}
+										year={
 											card.release_date === undefined
 												? "Coming soon"
 												: card.release_date
 										}
-										isFavorite = {false}
-                                        index={data[index]}
+										isFavorite={filmId.some(el => {
+                                            return el === card.id;
+                                        }
+										)}
+										index={data[index]}
 									/>
 								</Link>
 							</li>

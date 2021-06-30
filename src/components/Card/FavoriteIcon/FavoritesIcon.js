@@ -1,12 +1,11 @@
 import "../Card.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addFavorite } from "../../../redux/actions";
 
 function FavoritesIcon(props) {
 	const [favorite, setFavorite] = useState(props.isFavorite);
-    console.log(props);
     const dispatch = useDispatch();
 
 	function handleAddToFavorite(event) {
