@@ -8,5 +8,5 @@ import { authenticationReducer } from "./authenticationReducer";
 export const rootReducer = combineReducers({
 	films: filmListReducer,
     favorites: favoritesReducer,
-    signedIn: authenticationReducer 
+    signingIn: authenticationReducer
 });

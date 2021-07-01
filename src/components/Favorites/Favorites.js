@@ -13,6 +13,7 @@ function Favorites(props) {
 
 	const sessionToken = "1230390934aslkdfho124324";
 	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
+    const isLoggedIn = useSelector(state => state.signingIn.isLoggedIn);
 
 	const dispatch = useDispatch();
 
@@ -39,10 +40,6 @@ function Favorites(props) {
 		return film.id;
 	});
 
-	function log(event) {
-		console.log(event.target);
-	}
-
 	return (
 		<section className="favorites section">
 			<div className="vs-container">
@@ -51,7 +48,7 @@ function Favorites(props) {
 				<ul className="info__card-container">
 					{state.map((card, index) => {
 						return (
-							<li className="info__card-item-wrapper" key={card.id} onClick={log}>
+							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to={{ pathname: "/cardinfo", props: state[index] }}>
 									<Card
 										id={card.id}

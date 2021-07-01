@@ -1,12 +1,20 @@
-export function authenticationReducer(state = false, action) {
+const initialState = {
+    isLoggedIn: false
+}
+
+export function authenticationReducer(state = initialState, action) {
 	switch (action.type) {
 		case "LOGIN":
 			return {
                 ...state, 
+                isLoggedIn: true
             };
 
 		case "LOGOUT":
-			return false;
+			return {
+                ...state, 
+                isLoggedIn: false
+            };
 
 		default:
 			return state;

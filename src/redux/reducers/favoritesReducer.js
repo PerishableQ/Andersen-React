@@ -10,7 +10,8 @@ export function favoritesReducer(state = initialState, action) {
                 ...state,
                 favorites: state.favorites.concat(action.payload)
             }
-
+        
+        // need to finish the logic
         case 'REMOVE_FAVORITE':
             return {
                 ...state,

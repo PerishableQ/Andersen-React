@@ -1,6 +1,60 @@
+import React from "react";
+
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { login } from "../../redux/actions";
+
+import { loginReducer, passwordReducer } from "../SignIn/helpers";
+
 import "./SignUp.css";
 
-function SignUp(props) {
+function SignUp() {
+	const dispatch = useDispatch();
+
+	const [isValidForm, setIsValidForm] = React.useState(false);
+	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
+		value: "",
+		isValid: null
+	});
+
+	const [passwordState, dispatchPassword] = React.useReducer(passwordReducer, {
+		value: "",
+		isValid: null
+	});
+
+	const logChangeHandler = event => {
+		dispatchLogin({ type: "LOG_INPUT", val: event.target.value });
+	};
+
+	const passwordChangeHandler = event => {
+		dispatchPassword({ type: "PASSWORD_INPUT", val: event.target.value });
+	};
+
+	React.useEffect(() => {
+		const identify = setTimeout(() => {
+			setIsValidForm(loginState.isValid && passwordState.isValid);
+		}, 800);
+
+		return () => {
+			clearTimeout(identify);
+		};
+	}, [loginState, passwordState]);
+
+	const signUpClick = e => {
+		dispatch(login());
+		localStorage.setItem(
+			`${loginState.value}`,
+			JSON.stringify({
+				login: loginState.value,
+				password: passwordState.value,
+				favorites: [],
+				history: [],
+				signIn: true
+			})
+		);
+	};
+
 	return (
 		<section className="register section">
 			<div className="vs-container">
@@ -12,40 +66,49 @@ function SignUp(props) {
 
 						<div className="register__field-wrapper">
 							<div className="register-form__field-wrapper">
-								<label for="register-name-id" className="register-form__label">
-									{" "}
+								<label htmlFor="register-name-id" className="register-form__label">
 									Введите логин
 								</label>
 								<input
-									autocomplete="off"
+									autoComplete="off"
 									type="text"
 									name="register-name"
 									placeholder="Логин"
 									id="register-name-id"
 									className="register-form__input input"
+									value={loginState.value}
+									onChange={logChangeHandler}
 								/>
 							</div>
 
 							<div className="register-form__field-wrapper">
-								<label for="register-pass-id" className="register-form__label">
-									{" "}
+								<label htmlFor="register-pass-id" className="register-form__label">
 									Введите пароль
 								</label>
 								<input
-									autocomplete="off"
+									autoComplete="off"
 									type="text"
 									name="register-pass"
 									placeholder="Пароль"
 									id="register-pass-id"
 									className="register-form__input input"
+									value={passwordState.value}
+									onChange={passwordChangeHandler}
 								/>
 							</div>
 						</div>
 
 						<div className="section-form__buttons">
-							<button type="submit" className="btn">
-								Зарегистрироваться
-							</button>
+							<Link to="/">
+								<button
+									type="submit"
+									className="btn"
+									disabled={!isValidForm}
+									onClick={signUpClick}
+								>
+									Зарегистрироваться
+								</button>
+							</Link>
 						</div>
 					</form>
 				</div>
