@@ -11,6 +11,12 @@ export function favoritesReducer(state = initialState, action) {
                 favorites: state.favorites.concat(action.payload)
             }
 
+        case 'REMOVE_FAVORITE':
+            return {
+                ...state,
+                favorites: state.favorites.filter()
+            }
+
         default:
             return state;
     }

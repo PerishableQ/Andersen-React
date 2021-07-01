@@ -12,12 +12,12 @@ function SignIn(props) {
 
 						<div className="auth__field-wrapper">
 							<div className="auth-form__field-wrapper">
-								<label for="auth-name-id" className="auth-form__label">
+								<label htmlFor="auth-name-id" className="auth-form__label">
 									{" "}
 									Введите логин
 								</label>
 								<input
-									autocomplete="off"
+									autoComplete="off"
 									type="text"
 									name="auth-name"
 									placeholder="Логин"
@@ -27,7 +27,7 @@ function SignIn(props) {
 							</div>
 
 							<div className="auth-form__field-wrapper">
-								<label for="auth-pass-id" className="auth-form__label">
+								<label htmlFor="auth-pass-id" className="auth-form__label">
 									{" "}
 									Введите пароль
 								</label>
