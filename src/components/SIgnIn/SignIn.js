@@ -1,16 +1,15 @@
 import React from "react";
-
-import "./SignIn.css";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-// import { action_login } from "../../store/actions/logActions";
 import { login } from "../../redux/actions";
 
+// react useReducer functions
 import { loginReducer, passwordReducer } from "./helpers";
 
-const SignIn = () => {
+import "./SignIn.css";
+
+function SignIn(props) {
 	const [isValidForm, setIsValidForm] = React.useState(false);
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",
@@ -33,7 +32,7 @@ const SignIn = () => {
 		dispatchPassword({ type: "PASSWORD_INPUT", val: event.target.value });
 	};
 
-	const signInClick = e => {
+	const signInClick = (e) => {
 		e.preventDefault();
 		const localStorageData = JSON.parse(localStorage.getItem(loginState.value));
 

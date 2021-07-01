@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-//Import JS
+// components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-
 import AppRouter from "./Router";
 
-// Import CSS
+// styling
 import "./Reset.css";
 import "./App.css";
 
@@ -18,7 +17,7 @@ function App() {
 				<Header />
 
 				<main className="page">
-					{/* Сюда кладем все компоненты кроме хедера и футера */}
+                    {/* render all the components here */}
 					<AppRouter />
 				</main>
 

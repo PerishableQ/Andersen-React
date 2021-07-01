@@ -1,6 +1,5 @@
 const initialState = {
-    favorites: [], 
-    token: '1230390934aslkdfho124324'
+    favorites: []
 };
 
 export function favoritesReducer(state = initialState, action) {

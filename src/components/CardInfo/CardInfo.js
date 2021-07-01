@@ -39,11 +39,3 @@ function CardInfo(props) {
 }
 
 export default CardInfo;
-
-/* {
-        'poster_path': data.poster_path,
-        'title': data.title,
-        'release_date': data.release_date,
-        'overview': data.overview,
-        'vote_average': data.vote_average
-    } */

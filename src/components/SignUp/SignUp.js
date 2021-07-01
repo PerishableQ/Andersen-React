@@ -1,15 +1,15 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { login } from "../../redux/actions";
 
+// React useReducer functions
 import { loginReducer, passwordReducer } from "../SignIn/helpers";
 
 import "./SignUp.css";
 
-function SignUp() {
+function SignUp(props) {
 	const dispatch = useDispatch();
 
 	const [isValidForm, setIsValidForm] = React.useState(false);
@@ -41,7 +41,7 @@ function SignUp() {
 		};
 	}, [loginState, passwordState]);
 
-	const signUpClick = e => {
+	const signUpClick = () => {
 		dispatch(login());
 		localStorage.setItem(
 			`${loginState.value}`,

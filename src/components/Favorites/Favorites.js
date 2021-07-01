@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addFavorite } from "../../redux/actions";
+
 import "./Favorites.css";
 
 function Favorites(props) {
@@ -11,13 +12,12 @@ function Favorites(props) {
 		state.favorites.token
 	]);
 
-	const sessionToken = "1230390934aslkdfho124324";
 	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
     const isLoggedIn = useSelector(state => state.signingIn.isLoggedIn);
 
 	const dispatch = useDispatch();
 
-	if (token === sessionToken) {
+	if (isLoggedIn) {
 		if (favoritesState.length === 0) {
 			dispatch(addFavorite(JSON.parse(localStorage.getItem("favorites"))));
 		}

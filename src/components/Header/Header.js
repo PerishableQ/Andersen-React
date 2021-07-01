@@ -1,8 +1,10 @@
-import "./Header.css";
-import logo from "../../../src/assets/img/logo2.png";
+import React from "react";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import React from "react";
+
+import logo from "../../../src/assets/img/logo2.png";
+import "./Header.css";
 
 function Header(props) {
     const isLoggedIn = useSelector(state => state.signingIn.isLoggedIn);
