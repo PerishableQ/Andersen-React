@@ -19,8 +19,6 @@ function HomePage(props) {
 			.then(data => setData(data.results));
 	}, []);
 
-	// console.log(data);
-
 	return (
 		<section className="info section">
 			<div className="vs-container">
