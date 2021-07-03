@@ -7,13 +7,11 @@ import { addFilm } from "../../redux/actions";
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
+import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
+
 import "./HomePage.css";
 
 function HomePage(props) {
-	const API_KEY = "bf9e6e6bb4e6650d7d3bb59d1cbaa3b7";
-	const BASE_URL = "https://api.themoviedb.org/3/";
-	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
-
 	const [data, setData] = React.useState([]);
 	const dispatch = useDispatch();
 

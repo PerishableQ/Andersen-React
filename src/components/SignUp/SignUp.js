@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { login } from "../../redux/actions";
+import { login } from "../../redux/reducers/authSlice";
 
 // React useReducer functions
 import { loginReducer, passwordReducer } from "../SignIn/helpers";
@@ -12,7 +12,6 @@ import "./SignUp.css";
 function SignUp(props) {
 	const dispatch = useDispatch();
 
-	const [isValidForm, setIsValidForm] = React.useState(false);
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",
 		isValid: null
@@ -31,28 +30,32 @@ function SignUp(props) {
 		dispatchPassword({ type: "PASSWORD_INPUT", val: event.target.value });
 	};
 
-	React.useEffect(() => {
-		const identify = setTimeout(() => {
-			setIsValidForm(loginState.isValid && passwordState.isValid);
-		}, 800);
+	// React.useEffect(() => {
+	// 	const identify = setTimeout(() => {
+	// 		setIsValidForm(loginState.isValid && passwordState.isValid);
+	// 	}, 800);
 
-		return () => {
-			clearTimeout(identify);
-		};
-	}, [loginState, passwordState]);
+	// 	return () => {
+	// 		clearTimeout(identify);
+	// 	};
+	// }, [loginState, passwordState]);
 
 	const signUpClick = () => {
-		dispatch(login());
-		localStorage.setItem(
-			`${loginState.value}`,
-			JSON.stringify({
-				login: loginState.value,
-				password: passwordState.value,
-				favorites: [],
-				history: [],
-				signIn: true
-			})
-		);
+		if (passwordState.isValid && loginState.isValid) {
+			dispatch(login());
+			localStorage.setItem(
+				`${loginState.value}`,
+				JSON.stringify({
+					login: loginState.value,
+					password: passwordState.value,
+					favorites: [],
+					history: [],
+					signIn: true
+				})
+			);
+		} else {
+			alert("Неправильный логин или пароль");
+		}
 	};
 
 	return (
@@ -103,7 +106,7 @@ function SignUp(props) {
 								<button
 									type="submit"
 									className="btn"
-									disabled={!isValidForm}
+									// disabled={!isValidForm}
 									onClick={signUpClick}
 								>
 									Зарегистрироваться

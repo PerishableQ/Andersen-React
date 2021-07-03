@@ -6,6 +6,8 @@ import Card from "../Card/Card";
 import { addFavorite } from "../../redux/actions";
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
+import { BASE_IMG_URL } from "../../consts/constsApi";
+
 import "./Favorites.css";
 
 function Favorites(props) {
@@ -14,7 +16,6 @@ function Favorites(props) {
 		state.favorites.token
 	]);
 
-	const BASE_IMG_URL = "https://image.tmdb.org/t/p/w342";
 	const isLoggedIn = useStoreAuth();
 
 	const dispatch = useDispatch();

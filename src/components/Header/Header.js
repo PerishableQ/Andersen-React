@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
@@ -10,6 +9,7 @@ import "./Header.css";
 
 function Header(props) {
 	const isLoggedIn = useStoreAuth();
+	console.log(isLoggedIn);
 
 	return (
 		<header className="header">

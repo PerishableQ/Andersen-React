@@ -7,6 +7,7 @@ export const loginReducer = action => {
 
 export const passwordReducer = action => {
 	if (action.type === "PASSWORD_INPUT") {
+		console.log("action");
 		return { value: action.val, isValid: Boolean(action.val) };
 	}
 	return { value: "", isValid: false };
