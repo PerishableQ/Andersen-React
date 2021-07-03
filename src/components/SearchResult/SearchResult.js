@@ -1,5 +1,6 @@
-import "./SearchResult.css";
 import Card from "../Card/Card";
+
+import "./SearchResult.css";
 
 function SearchResult(props) {
 	return (

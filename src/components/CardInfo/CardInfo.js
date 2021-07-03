@@ -1,32 +1,36 @@
 import "./CardInfo.css";
 
 function CardInfo(props) {
+	const data = props.location.props;
+
+	if (data !== undefined) {
+		sessionStorage.setItem(
+			"stateCardInfo",
+			JSON.stringify({
+				poster_path: data.poster_path,
+				title: data.title,
+				release_date: data.release_date,
+				overview: data.overview,
+				vote_average: data.vote_average
+			})
+		);
+	}
+
+	const state = JSON.parse(sessionStorage.getItem("stateCardInfo"));
+
 	return (
 		<section className="card-inner section">
 			<div className="vs-container">
 				<div className="card-inner__wrapper">
 					<div className="card-inner__img-wrapper">
-						<img src="img/testgallery/4.jpg" alt="#" />
+						<img src={"https://image.tmdb.org/t/p/w342" + state.poster_path} alt="#" />
 					</div>
 
 					<div className="card-inner__content-wrapper">
-						<h2 className="card-inner__title">Заголовок</h2>
-						<p className="card-inner__year">Год</p>
-						<p className="card-inner__desc">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-							ullam
-						</p>
-						<p className="card-inner__desc">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic non
-							distinctio ipsa praesentium odit minima perspiciatis, culpa at ab quis,
-							molestias incidunt dicta sequi. Sapiente fugiat iusto repellendus ea,
-							voluptate sint quisquam temporibus! Ut debitis minus enim, odit ipsam
-							ipsa, voluptate quaerat numquam non amet vero nesciunt, quidem earum
-							perspiciatis iure neque molestiae dolor quisquam cumque. Et assumenda
-							voluptatem laborum nostrum fuga delectus iusto, praesentium maxime
-							repellat. Vitae qui quia officiis a! Inventore harum repudiandae error
-							sit enim, repellat aliquid.
-						</p>
+						<h2 className="card-inner__title">{state.title}</h2>
+						<p className="card-inner__year">{state.release_date}</p>
+						<p className="card-inner__desc">{state.overview}</p>
+						<p className="card-inner__desc">Rating: {state.vote_average}</p>
 					</div>
 				</div>
 			</div>

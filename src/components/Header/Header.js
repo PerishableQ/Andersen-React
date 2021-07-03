@@ -1,12 +1,15 @@
+import React from "react";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import "./Header.css";
-import logo from "../../../src/assets/img/logo2.png";
-import React from "react";
+import { useStoreAuth } from "../../hooks/useStoreAuth";
 
-function Header() {
-	const isLoggedIn = useSelector(state => state.isLoggedIn);
+import logo from "../../../src/assets/img/logo2.png";
+import "./Header.css";
+
+function Header(props) {
+	const isLoggedIn = useStoreAuth();
 
 	return (
 		<header className="header">
@@ -25,18 +28,19 @@ function Header() {
 					<nav className="header-menu">
 						<ul className="header-menu__list">
 							{isLoggedIn ? (
-								<li>
-									<Link to="/favorites" className="header-menu__link">
-										Favorites
-									</Link>
-								</li>
-							) : null}
-							{isLoggedIn ? (
-								<li>
-									<Link to="/searchhistory" className="header-menu__link">
-										Search History
-									</Link>
-								</li>
+								<React.Fragment>
+									<li>
+										<Link to="/favorites" className="header-menu__link">
+											Favorites
+										</Link>
+									</li>
+
+									<li>
+										<Link to="/searchhistory" className="header-menu__link">
+											Search History
+										</Link>
+									</li>
+								</React.Fragment>
 							) : null}
 						</ul>
 					</nav>

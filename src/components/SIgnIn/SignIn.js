@@ -1,33 +1,15 @@
 import React from "react";
-
-import "./SignIn.css";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { action_login } from "../../store/actions/logActions";
+import { login } from "../../redux/actions";
 
-const loginReducer = (state, action) => {
-	if (action.type === "LOG_INPUT") {
-		return { value: action.val, isValid: Boolean(action.val) };
-	}
-	if (action.type === "LOG_BLUR") {
-		return { value: state.value, isValid: Boolean(action.val) };
-	}
-	return { value: "", isValid: false };
-};
+// react useReducer functions
+import { loginReducer, passwordReducer } from "./helpers";
 
-const passwordReducer = (state, action) => {
-	if (action.type === "PASSWORD_INPUT") {
-		return { value: action.val, isValid: Boolean(action.val) };
-	}
-	if (action.type === "PASSWORD_BLUR") {
-		return { value: state.value, isValid: state.value.trim().length > 6 };
-	}
-	return { value: "", isValid: false };
-};
+import "./SignIn.css";
 
-const SignIn = () => {
+function SignIn(props) {
 	const [isValidForm, setIsValidForm] = React.useState(false);
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",
@@ -53,26 +35,28 @@ const SignIn = () => {
 	const signInClick = e => {
 		e.preventDefault();
 		const localStorageData = JSON.parse(localStorage.getItem(loginState.value));
+
 		if (localStorageData) {
 			if (localStorageData["password"] === passwordState.value) {
-				dispatch(action_login());
+				dispatch(login());
 				linkRef.current.click();
 			} else {
-				alert("Нерпавильный логин или пароль");
+				alert("Неправильный логин или пароль");
 			}
+
 			console.log(localStorageData, "important!!!");
 		} else {
-			alert("Нерпавильный логин или пароль");
+			alert("Неправильный логин или пароль");
 		}
 	};
 
 	React.useEffect(() => {
-		const identifire = setTimeout(() => {
+		const identify = setTimeout(() => {
 			setIsValidForm(loginState.isValid && passwordState.isValid);
 		}, 800);
 
 		return () => {
-			clearTimeout(identifire);
+			clearTimeout(identify);
 		};
 	}, [loginState, passwordState]);
 
@@ -135,6 +119,6 @@ const SignIn = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default SignIn;

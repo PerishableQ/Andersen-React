@@ -1,27 +1,15 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { action_login } from "../../store/actions/logActions";
+import { login } from "../../redux/actions";
+
+// React useReducer functions
+import { loginReducer, passwordReducer } from "../SignIn/helpers";
 
 import "./SignUp.css";
 
-const loginReducer = action => {
-	if (action.type === "LOG_INPUT") {
-		return { value: action.val, isValid: Boolean(action.val) };
-	}
-	return { value: "", isValid: false };
-};
-
-const passwordReducer = action => {
-	if (action.type === "PASSWORD_INPUT") {
-		return { value: action.val, isValid: Boolean(action.val) };
-	}
-	return { value: "", isValid: false };
-};
-
-function SignUp() {
+function SignUp(props) {
 	const dispatch = useDispatch();
 
 	const [isValidForm, setIsValidForm] = React.useState(false);
@@ -44,17 +32,17 @@ function SignUp() {
 	};
 
 	React.useEffect(() => {
-		const identifire = setTimeout(() => {
+		const identify = setTimeout(() => {
 			setIsValidForm(loginState.isValid && passwordState.isValid);
 		}, 800);
 
 		return () => {
-			clearTimeout(identifire);
+			clearTimeout(identify);
 		};
 	}, [loginState, passwordState]);
 
-	const signUpClick = e => {
-		dispatch(action_login());
+	const signUpClick = () => {
+		dispatch(login());
 		localStorage.setItem(
 			`${loginState.value}`,
 			JSON.stringify({
