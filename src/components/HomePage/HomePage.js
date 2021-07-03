@@ -58,9 +58,8 @@ function HomePage(props) {
 												: card.release_date
 										}
 										isFavorite={filmId.some(el => {
-                                            return el === card.id;
-                                        }
-										)}
+											return el === card.id;
+										})}
 										index={data[index]}
 									/>
 								</Link>

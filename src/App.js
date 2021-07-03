@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import AppRouter from "./Router";
+import AppRouter from "./AppRouter";
 
 // styling
 import "./Reset.css";
@@ -17,7 +17,7 @@ function App() {
 				<Header />
 
 				<main className="page">
-                    {/* render all the components here */}
+					{/* render all the components here */}
 					<AppRouter />
 				</main>
 
