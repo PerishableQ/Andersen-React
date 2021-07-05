@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addFilm } from "../../redux/reducers/filmsSlice";
 
@@ -12,18 +12,16 @@ import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
 import "./HomePage.scss";
 
 function HomePage(props) {
-	const [data, setData] = React.useState([]);
 	const dispatch = useDispatch();
+	const data = useSelector(state => state.films.films);
 
 	React.useEffect(() => {
 		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
 
 		fetch(popularMoviesUrl)
 			.then(response => response.json())
-			.then(data => setData(data.results));
-	}, []);
-
-	dispatch(addFilm(data));
+			.then(data => dispatch(addFilm(data.results)));
+	});
 
 	const getFavoritesDataFromLS =
 		JSON.parse(localStorage.getItem("favorites")) === null
