@@ -21,17 +21,9 @@ function HomePage(props) {
 		fetch(popularMoviesUrl)
 			.then(response => response.json())
 			.then(data => dispatch(addFilm(data.results)));
-    }, [dispatch]);
-    
-    // need to change the way we get the films on favorites list
-	const getFavoritesDataFromLS =
-		JSON.parse(localStorage.getItem("favorites")) === null
-			? []
-			: JSON.parse(localStorage.getItem("favorites"));
+	}, [dispatch]);
 
-	const filmId = getFavoritesDataFromLS.map(film => {
-		return film.id;
-	});
+    const filmsInFavoritesIds = useSelector(state => state.favorites.favorites).map(el => el.id);
 
 	return (
 		<section className="info section">
@@ -39,7 +31,7 @@ function HomePage(props) {
 				<SearchBar />
 
 				<ul className="info__card-container">
-					{data.map((card, index) => {
+					{data.map(card => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to={`/cardinfo/${card.id}`}>
@@ -52,9 +44,8 @@ function HomePage(props) {
 												? "Coming soon"
 												: card.release_date
 										}
-										isFavorite={filmId.some(el => {
-											return el === card.id;
-										})}
+										isFavorite={filmsInFavoritesIds.some(el => el === card.id)}
+										card={card}
 									/>
 								</Link>
 							</li>

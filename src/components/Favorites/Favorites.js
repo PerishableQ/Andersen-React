@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import React from "react";
+
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../Card/Card";
@@ -6,31 +8,15 @@ import Card from "../Card/Card";
 import { addFavorite } from "../../redux/reducers/favoritesSlice";
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
-import { BASE_IMG_URL } from "../../consts/constsApi";
+import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
+
 
 import "./Favorites.scss";
 
 function Favorites(props) {
-	const [favoritesState, token] = useSelector(state => [
-		state.favorites.favorites,
-		state.favorites.token
-	]);
-
+	const [favoritesState] = useSelector(state => [state.favorites.favorites]);
 	const isLoggedIn = useStoreAuth();
-
 	const dispatch = useDispatch();
-
-	if (isLoggedIn) {
-		if (favoritesState.length === 0) {
-			dispatch(addFavorite(JSON.parse(localStorage.getItem("favorites"))));
-		}
-
-		if (favoritesState.length !== 0) {
-			localStorage.setItem("favorites", JSON.stringify(favoritesState));
-		}
-
-		localStorage.setItem("userToken", JSON.stringify(token));
-	}
 
 	const state = JSON.parse(localStorage.getItem("favorites"));
 
@@ -41,7 +27,7 @@ function Favorites(props) {
 
 	const filmId = getFavoritesDataFromLS.map(film => {
 		return film.id;
-	});
+    });
 
 	return (
 		<section className="favorites section">
@@ -49,10 +35,10 @@ function Favorites(props) {
 				<h2 className="favorites__title">Favorites</h2>
 
 				<ul className="info__card-container">
-					{state.map((card, index) => {
+					{favoritesState.map((card, index) => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
-								<Link to={{ pathname: "/cardinfo", props: state[index] }}>
+								<Link to={`/cardinfo/${card.id}`}>
 									<Card
 										id={card.id}
 										img={BASE_IMG_URL + card.poster_path}
@@ -62,9 +48,7 @@ function Favorites(props) {
 												? "Coming soon"
 												: card.release_date
 										}
-										isFavorite={filmId.some(el => {
-											return card.id === el;
-										})}
+										isFavorite={true}
 									/>
 								</Link>
 							</li>
