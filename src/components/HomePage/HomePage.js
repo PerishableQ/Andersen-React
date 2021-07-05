@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { addFilm } from "../../redux/actions";
+import { addFilm } from "../../redux/reducers/filmsSlice";
 
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
@@ -23,9 +23,7 @@ function HomePage(props) {
 			.then(data => setData(data.results));
 	}, []);
 
-	React.useEffect(() => {
-		dispatch(addFilm(data));
-	});
+    dispatch(addFilm(data));
 
 	const getFavoritesDataFromLS =
 		JSON.parse(localStorage.getItem("favorites")) === null
