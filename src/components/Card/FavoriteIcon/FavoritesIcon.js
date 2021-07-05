@@ -1,4 +1,4 @@
-import "../Card.css";
+import "../Card.scss";
 import { useState } from "react";
 
 import { useDispatch } from "react-redux";

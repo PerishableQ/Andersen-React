@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar/SearchBar";
 
 import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
 
-import "./HomePage.css";
+import "./HomePage.scss";
 
 function HomePage(props) {
 	const [data, setData] = React.useState([]);

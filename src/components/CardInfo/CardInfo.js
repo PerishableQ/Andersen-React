@@ -1,4 +1,4 @@
-import "./CardInfo.css";
+import "./CardInfo.scss";
 
 function CardInfo(props) {
 	const data = props.location.props;

@@ -7,7 +7,7 @@ import { login } from "../../redux/reducers/authSlice";
 // react useReducer functions
 import { loginReducer, passwordReducer } from "./authReducers";
 
-import "./SignIn.css";
+import "./SignIn.scss";
 
 function SignIn(props) {
 	const [isValidForm, setIsValidForm] = React.useState(false);

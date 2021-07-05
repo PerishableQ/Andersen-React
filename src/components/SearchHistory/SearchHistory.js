@@ -1,4 +1,4 @@
-import "./SearchHistory.css";
+import "./SearchHistory.scss";
 
 function SearchHistory(props) {
 	return (

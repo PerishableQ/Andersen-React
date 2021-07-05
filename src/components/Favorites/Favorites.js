@@ -8,7 +8,7 @@ import { useStoreAuth } from "../../hooks/useStoreAuth";
 
 import { BASE_IMG_URL } from "../../consts/constsApi";
 
-import "./Favorites.css";
+import "./Favorites.scss";
 
 function Favorites(props) {
 	const [favoritesState, token] = useSelector(state => [

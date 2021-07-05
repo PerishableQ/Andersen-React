@@ -8,7 +8,7 @@ import AppRouter from "./AppRouter";
 
 // styling
 import "./Reset.css";
-import "./App.css";
+import "./App.scss";
 
 function App() {
 	return (

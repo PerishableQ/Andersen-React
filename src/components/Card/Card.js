@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./Card.scss";
 import FavoritesIcon from "./FavoriteIcon/FavoritesIcon";
 
 function Card(props) {

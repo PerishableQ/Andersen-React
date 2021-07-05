@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
 import logo from "../../../src/assets/img/logo2.png";
-import "./Header.css";
+import "./Header.scss";
 
 function Header(props) {
 	const isLoggedIn = useStoreAuth();

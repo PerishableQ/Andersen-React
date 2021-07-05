@@ -10,10 +10,6 @@ import CardInfo from "./components/CardInfo/CardInfo";
 import Favorites from "./components/Favorites/Favorites";
 import SearchHistory from "./components/SearchHistory/SearchHistory";
 
-// styling
-import "./Reset.css";
-import "./App.css";
-
 const AppRouter = () => (
 	<Switch>
 		<Route path="/" exact component={HomePage}></Route>

@@ -7,7 +7,7 @@ import { login } from "../../redux/reducers/authSlice";
 // React useReducer functions
 import { loginReducer, passwordReducer } from "./reducersInput.js";
 
-import "./SignUp.css";
+import "./SignUp.scss";
 
 function SignUp(props) {
 	const dispatch = useDispatch();
