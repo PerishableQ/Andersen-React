@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // components
@@ -12,13 +11,13 @@ import SearchHistory from "./components/SearchHistory/SearchHistory";
 
 const AppRouter = () => (
 	<Switch>
-		<Route path="/" exact component={HomePage}></Route>
-		<Route path="/favorites" exact component={Favorites}></Route>
-		<Route path="/searchhistory" exact component={SearchHistory}></Route>
-		<Route path="/searchresult" exact component={SearchResult}></Route>
-		<Route path="/signin" exact component={SignIn}></Route>
-		<Route path="/signup" exact component={SignUp}></Route>
-		<Route path="/cardinfo" exact component={CardInfo}></Route>
+		<Route path="/" exact component={HomePage} />
+		<Route path="/favorites" component={Favorites} />
+		<Route path="/searchhistory" component={SearchHistory} />
+		<Route path="/searchresult" component={SearchResult} />
+		<Route path="/signin" component={SignIn} />
+		<Route path="/signup" component={SignUp} />
+		<Route path="/cardinfo" component={CardInfo} />
 	</Switch>
 );
 
