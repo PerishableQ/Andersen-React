@@ -1,33 +1,16 @@
 import React from "react";
 
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Card from "../Card/Card";
 
-import { addFavorite } from "../../redux/reducers/favoritesSlice";
-import { useStoreAuth } from "../../hooks/useStoreAuth";
-
-import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
-
+import { BASE_IMG_URL } from "../../consts/constsApi";
 
 import "./Favorites.scss";
 
 function Favorites(props) {
 	const [favoritesState] = useSelector(state => [state.favorites.favorites]);
-	const isLoggedIn = useStoreAuth();
-	const dispatch = useDispatch();
-
-	const state = JSON.parse(localStorage.getItem("favorites"));
-
-	const getFavoritesDataFromLS =
-		JSON.parse(localStorage.getItem("favorites")) === null
-			? []
-			: JSON.parse(localStorage.getItem("favorites"));
-
-	const filmId = getFavoritesDataFromLS.map(film => {
-		return film.id;
-    });
 
 	return (
 		<section className="favorites section">

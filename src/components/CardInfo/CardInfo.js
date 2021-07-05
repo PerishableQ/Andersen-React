@@ -7,7 +7,7 @@ import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
 import "./CardInfo.scss";
 
 function CardInfo(props) {
-    const [data, setData] = React.useState([]);
+	const [data, setData] = React.useState([]);
 	const location = useLocation();
 	const filmId = location.pathname.substr(10);
 

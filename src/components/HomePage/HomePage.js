@@ -23,7 +23,7 @@ function HomePage(props) {
 			.then(data => dispatch(addFilm(data.results)));
 	}, [dispatch]);
 
-    const filmsInFavoritesIds = useSelector(state => state.favorites.favorites).map(el => el.id);
+	const filmsInFavoritesIds = useSelector(state => state.favorites.favorites).map(el => el.id);
 
 	return (
 		<section className="info section">
