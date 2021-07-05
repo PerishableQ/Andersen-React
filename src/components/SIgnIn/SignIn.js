@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { login } from "../../redux/actions";
+import { login } from "../../redux/reducers/authSlice";
 
 // react useReducer functions
 import { loginReducer, passwordReducer } from "./helpers";
