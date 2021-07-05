@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../redux/reducers/authSlice";
 
 // react useReducer functions
-import { loginReducer, passwordReducer } from "./helpers";
+import { loginReducer, passwordReducer } from "./authReducers";
 
 import "./SignIn.css";
 

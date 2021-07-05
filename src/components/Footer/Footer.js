@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import logo from "../../../src/assets/img/logo2.png";
 import "./Footer.css";
 
-
 function Footer(props) {
 	return (
 		<footer className="footer">

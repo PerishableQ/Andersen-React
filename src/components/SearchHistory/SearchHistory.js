@@ -7,29 +7,19 @@ function SearchHistory(props) {
 				<h2 className="search-history__title title">Search history</h2>
 				<ul className="search-history__list">
 					<li>
-						<div className="search-history__item">
-							Запрос 1
-						</div>
+						<div className="search-history__item">Запрос 1</div>
 					</li>
 					<li>
-						<div className="search-history__item">
-							Запрос 1
-						</div>
+						<div className="search-history__item">Запрос 1</div>
 					</li>
 					<li>
-						<div className="search-history__item">
-							Запрос 1
-						</div>
+						<div className="search-history__item">Запрос 1</div>
 					</li>
 					<li>
-						<div className="search-history__item">
-							Запрос 1
-						</div>
+						<div className="search-history__item">Запрос 1</div>
 					</li>
 					<li>
-						<div className="search-history__item">
-							Запрос 1
-						</div>
+						<div className="search-history__item">Запрос 1</div>
 					</li>
 				</ul>
 			</div>

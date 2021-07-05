@@ -23,7 +23,7 @@ function HomePage(props) {
 			.then(data => setData(data.results));
 	}, []);
 
-    dispatch(addFilm(data));
+	dispatch(addFilm(data));
 
 	const getFavoritesDataFromLS =
 		JSON.parse(localStorage.getItem("favorites")) === null
