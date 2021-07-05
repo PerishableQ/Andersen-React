@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { login } from "../../redux/reducers/authSlice";
@@ -11,6 +11,7 @@ import "./SignUp.scss";
 
 function SignUp(props) {
 	const dispatch = useDispatch();
+	let history = useHistory();
 
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",
@@ -30,16 +31,6 @@ function SignUp(props) {
 		dispatchPassword({ type: "PASSWORD_INPUT", val: event.target.value });
 	};
 
-	// React.useEffect(() => {
-	// 	const identify = setTimeout(() => {
-	// 		setIsValidForm(loginState.isValid && passwordState.isValid);
-	// 	}, 800);
-
-	// 	return () => {
-	// 		clearTimeout(identify);
-	// 	};
-	// }, [loginState, passwordState]);
-
 	const signUpClick = () => {
 		if (passwordState.isValid && loginState.isValid) {
 			dispatch(login());
@@ -53,6 +44,8 @@ function SignUp(props) {
 					signIn: true
 				})
 			);
+			localStorage.setItem("currentUser", `${loginState.value}`);
+			history.push("/"); // Переход на начальную страницу после клика
 		} else {
 			alert("Неправильный логин или пароль");
 		}
@@ -102,16 +95,9 @@ function SignUp(props) {
 						</div>
 
 						<div className="section-form__buttons">
-							<Link to="/">
-								<button
-									type="submit"
-									className="btn"
-									// disabled={!isValidForm}
-									onClick={signUpClick}
-								>
-									Зарегистрироваться
-								</button>
-							</Link>
+							<button type="submit" className="btn" onClick={signUpClick}>
+								Зарегистрироваться
+							</button>
 						</div>
 					</form>
 				</div>

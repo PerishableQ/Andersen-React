@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
+import { SignOutBtn } from "../SignOutBtn/SignOutBtn";
+
 import logo from "../../../src/assets/img/logo.png";
 
 import "./Header.scss";
@@ -55,7 +57,7 @@ function Header(props) {
 							</Link>
 						</div>
 					) : (
-						<button>Выйти</button>
+						<SignOutBtn />
 					)}
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../redux/reducers/authSlice";
 
@@ -10,7 +10,6 @@ import { loginReducer, passwordReducer } from "./authReducers";
 import "./SignIn.scss";
 
 function SignIn(props) {
-	const [isValidForm, setIsValidForm] = React.useState(false);
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",
 		isValid: null
@@ -21,8 +20,8 @@ function SignIn(props) {
 	});
 
 	const dispatch = useDispatch();
-
-	const linkRef = React.useRef(null);
+	let history = useHistory();
+	const favorites = useSelector(state => state.favorites.favorites);
 
 	const logChangeHandler = event => {
 		dispatchLogin({ type: "LOG_INPUT", val: event.target.value });
@@ -39,7 +38,9 @@ function SignIn(props) {
 		if (localStorageData) {
 			if (localStorageData["password"] === passwordState.value) {
 				dispatch(login());
-				linkRef.current.click();
+				localStorage.setItem("currentUser", `${loginState.value}`);
+				console.log(favorites);
+				history.push("/");
 			} else {
 				alert("Неправильный логин или пароль");
 			}
@@ -49,16 +50,6 @@ function SignIn(props) {
 			alert("Неправильный логин или пароль");
 		}
 	};
-
-	React.useEffect(() => {
-		const identify = setTimeout(() => {
-			setIsValidForm(loginState.isValid && passwordState.isValid);
-		}, 800);
-
-		return () => {
-			clearTimeout(identify);
-		};
-	}, [loginState, passwordState]);
 
 	return (
 		<section className="auth section">
@@ -104,13 +95,7 @@ function SignIn(props) {
 						</div>
 
 						<div className="section-form__buttons">
-							<Link to="/" ref={linkRef}></Link>
-							<button
-								type="submit"
-								className="btn"
-								disabled={!isValidForm}
-								onClick={e => signInClick(e)}
-							>
+							<button type="submit" className="btn" onClick={e => signInClick(e)}>
 								Войти
 							</button>
 						</div>
