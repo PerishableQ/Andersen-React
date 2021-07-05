@@ -9,7 +9,6 @@ import "./Header.scss";
 
 function Header(props) {
 	const isLoggedIn = useStoreAuth();
-	console.log(isLoggedIn);
 
 	return (
 		<header className="header">

@@ -21,8 +21,9 @@ function HomePage(props) {
 		fetch(popularMoviesUrl)
 			.then(response => response.json())
 			.then(data => dispatch(addFilm(data.results)));
-	});
-
+    }, [dispatch]);
+    
+    // need to change the way we get the films on favorites list
 	const getFavoritesDataFromLS =
 		JSON.parse(localStorage.getItem("favorites")) === null
 			? []
@@ -41,7 +42,7 @@ function HomePage(props) {
 					{data.map((card, index) => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
-								<Link to={{ pathname: "/cardinfo", props: data[index] }}>
+								<Link to={`/cardinfo/${card.id}`}>
 									<Card
 										id={card.id}
 										img={BASE_IMG_URL + card.poster_path}
@@ -54,7 +55,6 @@ function HomePage(props) {
 										isFavorite={filmId.some(el => {
 											return el === card.id;
 										})}
-										index={data[index]}
 									/>
 								</Link>
 							</li>

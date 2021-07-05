@@ -1,36 +1,37 @@
+import React from "react";
+
+import { useLocation } from "react-router-dom";
+
+import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
+
 import "./CardInfo.scss";
 
 function CardInfo(props) {
-	const data = props.location.props;
+    const [data, setData] = React.useState([]);
+	const location = useLocation();
+	const filmId = location.pathname.substr(10);
 
-	if (data !== undefined) {
-		sessionStorage.setItem(
-			"stateCardInfo",
-			JSON.stringify({
-				poster_path: data.poster_path,
-				title: data.title,
-				release_date: data.release_date,
-				overview: data.overview,
-				vote_average: data.vote_average
-			})
-		);
-	}
+	React.useEffect(() => {
+		const url = BASE_URL + `movie/${filmId}?api_key=${API_KEY}&language=en-US`;
 
-	const state = JSON.parse(sessionStorage.getItem("stateCardInfo"));
+		fetch(url)
+			.then(response => response.json())
+			.then(data => setData(data));
+	}, [filmId]);
 
 	return (
 		<section className="card-inner section">
 			<div className="vs-container">
 				<div className="card-inner__wrapper">
 					<div className="card-inner__img-wrapper">
-						<img src={"https://image.tmdb.org/t/p/w342" + state.poster_path} alt="#" />
+						<img src={BASE_IMG_URL + data.poster_path} alt="#" />
 					</div>
 
 					<div className="card-inner__content-wrapper">
-						<h2 className="card-inner__title">{state.title}</h2>
-						<p className="card-inner__year">{state.release_date}</p>
-						<p className="card-inner__desc">{state.overview}</p>
-						<p className="card-inner__desc">Rating: {state.vote_average}</p>
+						<h2 className="card-inner__title">{data.title}</h2>
+						<p className="card-inner__year">{data.release_date}</p>
+						<p className="card-inner__desc">{data.overview}</p>
+						<p className="card-inner__desc">Rating: {data.vote_average}</p>
 					</div>
 				</div>
 			</div>
