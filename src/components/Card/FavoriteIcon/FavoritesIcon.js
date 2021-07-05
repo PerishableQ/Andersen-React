@@ -31,7 +31,7 @@ function FavoritesIcon(props) {
 				</svg>
 			) : (
 				<svg
-					id="Capa_1"
+					id="Capa_2"
 					enableBackground="new 0 0 512.07 512.07"
 					height="512"
 					viewBox="0 0 512.07 512.07"
