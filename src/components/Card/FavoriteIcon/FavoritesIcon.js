@@ -2,7 +2,7 @@ import "../Card.css";
 import { useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { addFavorite } from "../../../redux/actions";
+import { addFavorite } from "../../../redux/reducers/favoritesSlice";
 
 function FavoritesIcon(props) {
 	const [favorite, setFavorite] = useState(props.isFavorite);

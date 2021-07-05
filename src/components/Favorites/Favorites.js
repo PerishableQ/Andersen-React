@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../Card/Card";
 
-import { addFavorite } from "../../redux/actions";
+import { addFavorite } from "../../redux/reducers/favoritesSlice";
 import { useStoreAuth } from "../../hooks/useStoreAuth";
 
 import { BASE_IMG_URL } from "../../consts/constsApi";
