@@ -1,19 +1,17 @@
-import "../Card.scss";
-import { useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { addFavorite } from "../../../redux/reducers/favoritesSlice";
 
 import { FavoriteSVG } from "./FavoriteSVG";
 import { UnfavoriteSVG } from "./UnfavoriteSVG";
 
+import "../Card.scss";
+
 function FavoritesIcon(props) {
-	const [favorite, setFavorite] = useState(props.isFavorite);
+    const favorite = props.isFavorite;
 	const dispatch = useDispatch();
 
 	function handleAddToFavorite(event) {
 		event.preventDefault();
-		setFavorite(!favorite);
 		dispatch(addFavorite(props.card));
 	}
 
