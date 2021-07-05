@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -18,7 +17,7 @@ function Favorites(props) {
 				<h2 className="favorites__title">Favorites</h2>
 
 				<ul className="info__card-container">
-					{favoritesState.map((card, index) => {
+					{favoritesState.map(card => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to={`/cardinfo/${card.id}`}>

@@ -17,7 +17,6 @@ function App() {
 				<Header />
 
 				<main className="page">
-					{/* render all the components here */}
 					<AppRouter />
 				</main>
 

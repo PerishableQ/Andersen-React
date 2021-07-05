@@ -23,7 +23,7 @@ function HomePage(props) {
 			.then(data => dispatch(addFilm(data.results)));
 	}, [dispatch]);
 
-	const filmsInFavoritesIds = useSelector(state => state.favorites.favorites).map(el => el.id);
+	const filmsInFavorites = useSelector(state => state.favorites.favorites).map(el => el.id);
 
 	return (
 		<section className="info section">
@@ -44,7 +44,7 @@ function HomePage(props) {
 												? "Coming soon"
 												: card.release_date
 										}
-										isFavorite={filmsInFavoritesIds.some(el => el === card.id)}
+										isFavorite={filmsInFavorites.some(el => el === card.id)}
 										card={card}
 									/>
 								</Link>
