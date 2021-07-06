@@ -14,11 +14,11 @@ function FavoritesIcon(props) {
 
 	function handleAddToFavorite(event) {
 		event.preventDefault();
-        if (filmsInFavoritesList.includes(props.card.id)) {
-            return;
-        } else {
-            return dispatch(addFavorite(props.card));
-        }
+		if (filmsInFavoritesList.includes(props.card.id)) {
+			return;
+		} else {
+			return dispatch(addFavorite(props.card));
+		}
 	}
 
 	return (
