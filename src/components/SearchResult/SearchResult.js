@@ -11,7 +11,8 @@ import { BASE_IMG_URL } from "../../consts/constsApi";
 import "./SearchResult.scss";
 
 function SearchResult(props) {
-	const searchResult = useSelector(state => state.search);
+    const searchResult = useSelector(state => state.search);
+    const filmsInFavorites = useSelector(state => state.favorites.favorites).map(el => el.id);
 
 	return (
 		<section className="search-result section">
@@ -30,7 +31,7 @@ function SearchResult(props) {
 										img={BASE_IMG_URL + card.poster_path}
 										title={card.original_title}
 										year={card.release_date}
-										isFavorite={false}
+										isFavorite={filmsInFavorites.some(el => el === card.id)}
 										card={card}
 									/>
 								</Link>
