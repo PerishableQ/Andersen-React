@@ -2,25 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addFilm } from "../../redux/reducers/filmsSlice";
-
 import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
-import { API_KEY, BASE_URL, BASE_IMG_URL } from "../../consts/constsApi";
+import { BASE_IMG_URL } from "../../consts/constsApi";
+import { fetchFilmsForHomePage } from "../../redux/middlewares/fetchFilmsForHomePage";
 
 import "./HomePage.scss";
 
 function HomePage(props) {
 	const dispatch = useDispatch();
-	const data = useSelector(state => state.films.films);
+	const storeData = useSelector(state => state.films.films);
 
 	React.useEffect(() => {
-		const popularMoviesUrl = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1"`;
-
-		fetch(popularMoviesUrl)
-			.then(response => response.json())
-			.then(data => dispatch(addFilm(data.results)));
+		dispatch(fetchFilmsForHomePage());
 	}, [dispatch]);
 
 	const filmsInFavorites = useSelector(state => state.favorites.favorites).map(el => el.id);
@@ -31,7 +26,7 @@ function HomePage(props) {
 				<SearchBar />
 
 				<ul className="info__card-container">
-					{data.map(card => {
+					{storeData.map(card => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to={`/cardinfo/${card.id}`}>
