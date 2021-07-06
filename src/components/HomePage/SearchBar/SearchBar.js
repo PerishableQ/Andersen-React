@@ -3,23 +3,27 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
 import { fetchSearch } from "../../../redux/middlewares/fetchSearch.js";
+import { addHistory } from "../../../redux/reducers/historySlice.js";
 
 function SearchBar(props) {
 	const [state, setState] = React.useState("");
-    const history = useHistory();
-    const dispatch = useDispatch();
+	const history = useHistory();
+	const dispatch = useDispatch();
 
-    function handleChange(event) {
-        setState(event.target.value);
-        event.preventDefault();
+	function handleChange(event) {
+		setState(event.target.value);
+		event.preventDefault();
 	}
 
-    function handleFetch(event) {
-		const searchQuery = state;
-		dispatch(fetchSearch(searchQuery));
-        history.push('/searchresult')
+	function handleFetch(event) {
+        const searchQuery = state;
         
-        event.preventDefault();
+		dispatch(fetchSearch(searchQuery));
+        dispatch(addHistory(searchQuery));
+        
+		history.push("/searchresult");
+
+		event.preventDefault();
 	}
 
 	return (
@@ -40,7 +44,7 @@ function SearchBar(props) {
 					</button>
 				</form>
 			</div>
-        </div>
+		</div>
 	);
 }
 
