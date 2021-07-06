@@ -8,8 +8,9 @@ import "./CardInfo.scss";
 
 function CardInfo(props) {
 	const [data, setData] = React.useState([]);
-	const location = useLocation();
-	const filmId = location.pathname.substr(10);
+    const location = useLocation();
+    const URL_LENGTH = 10;
+	const filmId = location.pathname.substr(URL_LENGTH);
 
 	React.useEffect(() => {
 		const url = BASE_URL + `movie/${filmId}?api_key=${API_KEY}&language=en-US`;

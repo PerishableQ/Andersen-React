@@ -91,7 +91,7 @@ function SignIn(props) {
 						</div>
 
 						<div className="section-form__buttons">
-							<button type="submit" className="btn" onClick={e => signInClick(e)}>
+							<button type="submit" className="btn" onClick={signInClick}>
 								Войти
 							</button>
 						</div>

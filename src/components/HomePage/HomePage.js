@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 import SearchBar from "./SearchBar/SearchBar";
 
 import { BASE_IMG_URL } from "../../consts/constsApi";
-import { fetchFilmsForHomePage } from "../../redux/middlewares/fetchFilmsForHomePage";
+import { fetchPopularFilms } from "../../redux/middlewares/fetchPopularFilms";
 
 import "./HomePage.scss";
 
@@ -15,7 +15,7 @@ function HomePage(props) {
 	const storeData = useSelector(state => state.films.films);
 
 	React.useEffect(() => {
-		dispatch(fetchFilmsForHomePage());
+		dispatch(fetchPopularFilms());
 	}, [dispatch]);
 
 	const filmsInFavorites = useSelector(state => state.favorites.favorites).map(el => el.id);
