@@ -11,7 +11,7 @@ import "./SignUp.scss";
 
 function SignUp(props) {
 	const dispatch = useDispatch();
-	let history = useHistory();
+	const history = useHistory();
 
 	const [loginState, dispatchLogin] = React.useReducer(loginReducer, {
 		value: "",

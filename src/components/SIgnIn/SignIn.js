@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { login } from "../../redux/reducers/authSlice";
 
@@ -20,8 +20,7 @@ function SignIn(props) {
 	});
 
 	const dispatch = useDispatch();
-	let history = useHistory();
-	const favorites = useSelector(state => state.favorites.favorites);
+	const history = useHistory();
 
 	const logChangeHandler = event => {
 		dispatchLogin({ type: "LOG_INPUT", val: event.target.value });
@@ -39,13 +38,10 @@ function SignIn(props) {
 			if (localStorageData["password"] === passwordState.value) {
 				dispatch(login());
 				localStorage.setItem("currentUser", `${loginState.value}`);
-				console.log(favorites);
 				history.push("/");
 			} else {
 				alert("Неправильный логин или пароль");
 			}
-
-			console.log(localStorageData, "important!!!");
 		} else {
 			alert("Неправильный логин или пароль");
 		}
