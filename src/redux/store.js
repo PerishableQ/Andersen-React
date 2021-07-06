@@ -9,6 +9,11 @@ import { useDispatch } from "react-redux";
 
 const putInLocalStorage = store => next => action => {
 	let result;
+	// let currentUser = localStorage.getItem("currentUser");
+	// // console.log(store.getState().favorites, "fav");
+	// let startUserData = JSON.parse(localStorage.getItem(currentUser));
+	// store.getState().favorites = startUserData.favorites;
+	// console.log(store.getState());
 
 	// Данные до изменения стора
 	console.log("this is store1", store.getState().favorites.favorites);
