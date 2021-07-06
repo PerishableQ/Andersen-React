@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFavorite } from "../../../redux/reducers/favoritesSlice";
 
 import { FavoriteSVG } from "./FavoriteSVG";
@@ -7,12 +7,18 @@ import { UnfavoriteSVG } from "./UnfavoriteSVG";
 import "../Card.scss";
 
 function FavoritesIcon(props) {
-    const favorite = props.isFavorite;
+	const favorite = props.isFavorite;
 	const dispatch = useDispatch();
+
+	const filmsInFavoritesList = useSelector(store => store.favorites.favorites).map(el => el.id);
 
 	function handleAddToFavorite(event) {
 		event.preventDefault();
-		dispatch(addFavorite(props.card));
+        if (filmsInFavoritesList.includes(props.card.id)) {
+            return;
+        } else {
+            return dispatch(addFavorite(props.card));
+        }
 	}
 
 	return (
