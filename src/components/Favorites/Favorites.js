@@ -17,25 +17,29 @@ function Favorites(props) {
 				<h2 className="favorites__title">Favorites</h2>
 
 				<ul className="info__card-container">
-					{favoritesState.map(card => {
-						return (
-							<li className="info__card-item-wrapper" key={card.id}>
-								<Link to={`/cardinfo/${card.id}`}>
-									<Card
-										id={card.id}
-										img={BASE_IMG_URL + card.poster_path}
-										title={card.original_title}
-										year={
-											card.release_date === undefined
-												? "Coming soon"
-												: card.release_date
-										}
-										isFavorite={true}
-									/>
-								</Link>
-							</li>
-						);
-					})}
+					{favoritesState.length === 0 ? (
+						<div className="favorites__add">Add something here</div>
+					) : (
+						favoritesState.map(card => {
+							return (
+								<li className="info__card-item-wrapper" key={card.id}>
+									<Link to={`/cardinfo/${card.id}`}>
+										<Card
+											id={card.id}
+											img={BASE_IMG_URL + card.poster_path}
+											title={card.original_title}
+											year={
+												card.release_date === undefined
+													? "Coming soon"
+													: card.release_date
+											}
+											isFavorite={true}
+										/>
+									</Link>
+								</li>
+							);
+						})
+					)}
 				</ul>
 			</div>
 		</section>
