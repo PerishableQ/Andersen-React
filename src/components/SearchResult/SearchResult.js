@@ -1,23 +1,39 @@
+import React from 'react';
+
+import { useSelector } from "react-redux";
+
 import Card from "../Card/Card";
+import SearchBar from "../HomePage/SearchBar/SearchBar";
+
+import { BASE_IMG_URL } from "../../consts/constsApi";
 
 import "./SearchResult.scss";
 
 function SearchResult(props) {
-	return (
-		<section className="search-result section">
-			<div className="vs-container">
-				<h2 className="search-result__title title">Search result:</h2>
+    const searchResult = useSelector(state => state.search);
 
-				<ul className="info__card-container">
-					<li className="info__card-item-wrapper">
-						<Card img="#" title="Заголовок карточки" year="2005" isFavorite={false} />
-					</li>
-					<li className="info__card-item-wrapper">
-						<Card img="#" title="Заголовок карточки #2" year="2020" isFavorite={true} />
-					</li>
-				</ul>
-			</div>
-		</section>
+    return (
+            <section className="search-result section">
+                <div className="vs-container">
+            <SearchBar />
+                    <h2 className="search-result__title title">Search result:</h2>
+
+                    <ul className="info__card-container">
+                        {searchResult.map(card => {
+                            return (
+                                <li className="info__card-item-wrapper" key={card.id}>
+                                    <Card
+                                        img={BASE_IMG_URL + card.poster_path}
+                                        title={card.title}
+                                        year={card.release_date}
+                                        isFavorite={false}
+                                    />
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </section>
 	);
 }
 
