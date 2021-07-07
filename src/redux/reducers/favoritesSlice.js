@@ -11,14 +11,13 @@ const favoritesSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		addFavorite(state, action) {
-			console.log("Данные", startUserData);
 			state.favorites = state.favorites.concat(action.payload);
 		},
 		resetFavorite(state, action) {
 			state.favorites = [];
 		},
 		connectLStoStore(state, action) {
-			state.favorites = action.payload
+			state.favorites = action.payload;
 		}
 	}
 });
