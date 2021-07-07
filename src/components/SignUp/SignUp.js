@@ -48,11 +48,11 @@ function SignUp(props) {
 				localStorage.setItem("currentUser", `${loginState.value}`);
 				history.push("/"); // Переход на начальную страницу после клика
 			} else {
-				alert("Неверный логин или пароль");
+				alert("Invalid login or password");
 			}
 		} else {
 			history.push("/signup");
-			alert("Пользователь с таким именем уже существует");
+			alert("User with same login already exists!");
 		}
 	};
 
@@ -62,19 +62,19 @@ function SignUp(props) {
 				<div className="register__form">
 					<form action="#" method="POST" className="register-form">
 						<div className="register-form__title-wrapper">
-							<h2 className="register-form__title">Регистрация</h2>
+							<h2 className="register-form__title">Sign Up</h2>
 						</div>
 
 						<div className="register__field-wrapper">
 							<div className="register-form__field-wrapper">
 								<label htmlFor="register-name-id" className="register-form__label">
-									Введите логин
+									Login
 								</label>
 								<input
 									autoComplete="off"
 									type="text"
 									name="register-name"
-									placeholder="Логин"
+									placeholder="Login"
 									id="register-name-id"
 									className="register-form__input input"
 									value={loginState.value}
@@ -84,13 +84,13 @@ function SignUp(props) {
 
 							<div className="register-form__field-wrapper">
 								<label htmlFor="register-pass-id" className="register-form__label">
-									Введите пароль
+									Password
 								</label>
 								<input
 									autoComplete="off"
 									type="text"
 									name="register-pass"
-									placeholder="Пароль"
+									placeholder="Password"
 									id="register-pass-id"
 									className="register-form__input input"
 									value={passwordState.value}
@@ -101,7 +101,7 @@ function SignUp(props) {
 
 						<div className="section-form__buttons">
 							<button type="button" className="btn" onClick={signUpClick}>
-								Зарегистрироваться
+								Sign Up
 							</button>
 						</div>
 					</form>

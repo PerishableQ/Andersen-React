@@ -12,7 +12,7 @@ function Footer(props) {
 					<Link to="/" className="footer__logo logo">
 						<img src={logo} alt="logo" />
 					</Link>
-					<div className="footer__copyright">All right reserved © 2021</div>
+					<div className="footer__copyright">All rights reserved © 2021</div>
 				</div>
 			</div>
 		</footer>

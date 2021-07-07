@@ -42,10 +42,10 @@ function SignIn(props) {
 				localStorage.setItem("currentUser", `${loginState.value}`);
 				history.push("/");
 			} else {
-				alert("Неправильный логин или пароль");
+				alert("Invalid login or password");
 			}
 		} else {
-			alert("Неправильный логин или пароль");
+			alert("Invalid login or password");
 		}
 	};
 
@@ -55,19 +55,19 @@ function SignIn(props) {
 				<div className="auth__form">
 					<form action="/" method="POST" className="auth-form">
 						<div className="auth-form__title-wrapper">
-							<h2 className="auth-form__title">Войти в систему</h2>
+							<h2 className="auth-form__title">Sign In</h2>
 						</div>
 
 						<div className="auth__field-wrapper">
 							<div className="auth-form__field-wrapper">
 								<label htmlFor="auth-name-id" className="auth-form__label">
-									Введите логин
+									Login
 								</label>
 								<input
 									autoComplete="off"
 									type="text"
 									name="auth-name"
-									placeholder="Логин"
+									placeholder="Login"
 									id="auth-name-id"
 									className="auth-form__input input"
 									value={loginState.value}
@@ -77,13 +77,13 @@ function SignIn(props) {
 
 							<div className="auth-form__field-wrapper">
 								<label htmlFor="auth-pass-id" className="auth-form__label">
-									Введите пароль
+									Password
 								</label>
 								<input
 									autoComplete="off"
 									type="text"
 									name="auth-pass"
-									placeholder="Пароль"
+									placeholder="Password"
 									id="auth-pass-id"
 									className="auth-form__input input"
 									value={passwordState.value}
@@ -94,7 +94,7 @@ function SignIn(props) {
 
 						<div className="section-form__buttons">
 							<button type="submit" className="btn" onClick={signInClick}>
-								Войти
+								Sign In
 							</button>
 						</div>
 					</form>
