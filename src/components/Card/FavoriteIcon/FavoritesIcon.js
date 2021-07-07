@@ -13,7 +13,10 @@ function FavoritesIcon(props) {
 	const filmsInFavoritesList = useSelector(store => store.favorites.favorites).map(el => el.id);
 
 	function handleAddToFavorite(event) {
-		event.preventDefault();
+		if (event.target !== event.currentTarget) {
+			event.preventDefault();
+		}
+
 		if (filmsInFavoritesList.includes(props.card.id)) {
 			return;
 		} else {
