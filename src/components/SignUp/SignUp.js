@@ -32,22 +32,27 @@ function SignUp(props) {
 	};
 
 	const signUpClick = () => {
-		if (passwordState.isValid && loginState.isValid) {
-			dispatch(login());
-			localStorage.setItem(
-				`${loginState.value}`,
-				JSON.stringify({
-					login: loginState.value,
-					password: passwordState.value,
-					favorites: [],
-					history: [],
-					signIn: true
-				})
-			);
-			localStorage.setItem("currentUser", `${loginState.value}`);
-			history.push("/"); // Переход на начальную страницу после клика
+		if (!localStorage.getItem(`${loginState.value}`)) {
+			if (passwordState.isValid && loginState.isValid) {
+				dispatch(login());
+				localStorage.setItem(
+					`${loginState.value}`,
+					JSON.stringify({
+						login: loginState.value,
+						password: passwordState.value,
+						favorites: [],
+						history: [],
+						signIn: true
+					})
+				);
+				localStorage.setItem("currentUser", `${loginState.value}`);
+				history.push("/"); // Переход на начальную страницу после клика
+			} else {
+				alert("Неверный логин или пароль");
+			}
 		} else {
-			alert("Неправильный логин или пароль");
+			history.push("/signup");
+			alert("Пользователь с таким именем уже существует");
 		}
 	};
 
@@ -95,7 +100,7 @@ function SignUp(props) {
 						</div>
 
 						<div className="section-form__buttons">
-							<button type="submit" className="btn" onClick={signUpClick}>
+							<button type="button" className="btn" onClick={signUpClick}>
 								Зарегистрироваться
 							</button>
 						</div>
