@@ -1,6 +1,5 @@
 export const storeInLS = store => next => action => {
 	let result = next(action);
-	// console.log("Action: ", action);
 
 	if (action.type === "favorites/addFavorite") {
 		const storeFavorites = store.getState().favorites.favorites;
