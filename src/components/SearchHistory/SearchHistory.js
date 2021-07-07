@@ -17,7 +17,7 @@ function SearchHistory(props) {
 					{historyState.map(el => {
 						return (
 							<Link to="/searchresult">
-								<li key={Math.random()}>
+								<li key={el}>
 									<div
 										className="search-history__item"
 										onClick={dispatch(fetchSearch(el))}

@@ -1,14 +1,17 @@
 export const storeInLS = store => next => action => {
-	const storeFavorites = store.getState().favorites.favorites;
-	const currentUserLogin = localStorage.getItem("currentUser");
+	let result = next(action);
+	// console.log("Action: ", action);
 
-	if (currentUserLogin) {
-		const userDataFromLS = JSON.parse(localStorage.getItem(currentUserLogin));
+	if (action.type === "favorites/addFavorite") {
+		const storeFavorites = store.getState().favorites.favorites;
+		const currentUserLogin = localStorage.getItem("currentUser");
 
-		userDataFromLS.favorites = storeFavorites;
-
-		localStorage.setItem(currentUserLogin, JSON.stringify(userDataFromLS));
+		if (currentUserLogin) {
+			const userDataFromLS = JSON.parse(localStorage.getItem(currentUserLogin));
+			// console.log(userDataFromLS);
+			userDataFromLS.favorites = storeFavorites;
+			localStorage.setItem(currentUserLogin, JSON.stringify(userDataFromLS));
+		}
 	}
-
-	return next(action);
+	return result;
 };

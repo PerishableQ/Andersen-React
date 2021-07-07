@@ -11,10 +11,14 @@ const favoritesSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		addFavorite(state, action) {
+			console.log("Данные", startUserData);
 			state.favorites = state.favorites.concat(action.payload);
+		},
+		resetFavorite(state, action) {
+			state.favorites = [];
 		}
 	}
 });
 
 export default favoritesSlice.reducer;
-export const { addFavorite } = favoritesSlice.actions;
+export const { addFavorite, resetFavorite } = favoritesSlice.actions;
