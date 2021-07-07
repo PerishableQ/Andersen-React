@@ -4,9 +4,13 @@ import { combineReducers } from "redux";
 import filmsSlice from "./filmsSlice";
 import favoritesSlice from "./favoritesSlice";
 import authSlice from "./authSlice";
+import searchSlice from "./searchSlice";
+import historySlice from "./historySlice";
 
 export const rootReducer = combineReducers({
 	films: filmsSlice,
 	favorites: favoritesSlice,
-	auth: authSlice
+	auth: authSlice,
+	search: searchSlice,
+	history: historySlice
 });
