@@ -13,6 +13,14 @@ export const storeInLS = store => next => action => {
 		}
 	}
 
+	if (action.type === "favorites/removeFavorite") {
+		if (currentUserLogin) {
+			userDataFromLS.favorites = storeFavorites;
+
+			localStorage.setItem(currentUserLogin, JSON.stringify(userDataFromLS));
+		}
+	}
+
 	if (action.type === "history/addHistory") {
 		if (currentUserLogin) {
 			userDataFromLS.history = storeHistory;

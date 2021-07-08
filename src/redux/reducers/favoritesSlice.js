@@ -13,6 +13,9 @@ const favoritesSlice = createSlice({
 		addFavorite(state, action) {
 			state.favorites = state.favorites.concat(action.payload);
 		},
+		removeFavorite(state, action) {
+			state.favorites = state.favorites.filter(film => film.id !== action.payload);
+		},
 		resetFavorite(state) {
 			state.favorites = [];
 		},
@@ -23,4 +26,5 @@ const favoritesSlice = createSlice({
 });
 
 export default favoritesSlice.reducer;
-export const { addFavorite, resetFavorite, connectLSFavoritesToStore } = favoritesSlice.actions;
+export const { addFavorite, removeFavorite, resetFavorite, connectLSFavoritesToStore } =
+	favoritesSlice.actions;

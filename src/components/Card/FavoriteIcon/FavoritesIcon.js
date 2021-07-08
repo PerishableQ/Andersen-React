@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite } from "../../../redux/reducers/favoritesSlice";
+import { addFavorite, removeFavorite } from "../../../redux/reducers/favoritesSlice";
 
 import { FavoriteSVG } from "./FavoriteSVG";
 import { UnfavoriteSVG } from "./UnfavoriteSVG";
@@ -18,7 +18,8 @@ function FavoritesIcon(props) {
 		}
 
 		if (filmsInFavoritesList.includes(props.card.id)) {
-			return;
+			// console.log(props.card);
+			return dispatch(removeFavorite(props.card.id));
 		} else {
 			return dispatch(addFavorite(props.card));
 		}
