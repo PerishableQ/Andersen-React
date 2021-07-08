@@ -6,7 +6,7 @@ import { fetchSearch } from "../../redux/middlewares/fetchSearch";
 import "./SearchHistory.scss";
 
 function SearchHistory(props) {
-	const historyState = useSelector(state => state.history);
+	const historyState = useSelector(state => state.history.history);
 	const dispatch = useDispatch();
 
 	return (

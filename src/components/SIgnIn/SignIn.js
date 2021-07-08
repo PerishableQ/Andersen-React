@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { login } from "../../redux/reducers/authSlice";
-import { connectLStoStore } from "../../redux/reducers/favoritesSlice";
+import { connectLSFavoritesToStore } from "../../redux/reducers/favoritesSlice";
+import { connectLSHistoryToStore } from "../../redux/reducers/historySlice";
 
 // react useReducer functions
 import { loginReducer, passwordReducer } from "./authReducers";
@@ -38,7 +39,8 @@ function SignIn(props) {
 		if (localStorageData) {
 			if (localStorageData["password"] === passwordState.value) {
 				dispatch(login());
-				dispatch(connectLStoStore(localStorageData.favorites));
+				dispatch(connectLSFavoritesToStore(localStorageData.favorites));
+				dispatch(connectLSHistoryToStore(localStorageData.history));
 				localStorage.setItem("currentUser", `${loginState.value}`);
 				history.push("/");
 			} else {

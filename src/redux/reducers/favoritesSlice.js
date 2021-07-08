@@ -16,11 +16,11 @@ const favoritesSlice = createSlice({
 		resetFavorite(state) {
 			state.favorites = [];
 		},
-		connectLStoStore(state, action) {
+		connectLSFavoritesToStore(state, action) {
 			state.favorites = action.payload;
 		}
 	}
 });
 
 export default favoritesSlice.reducer;
-export const { addFavorite, resetFavorite, connectLStoStore } = favoritesSlice.actions;
+export const { addFavorite, resetFavorite, connectLSFavoritesToStore } = favoritesSlice.actions;
