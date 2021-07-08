@@ -41,8 +41,7 @@ function SignUp(props) {
 						login: loginState.value,
 						password: passwordState.value,
 						favorites: [],
-						history: [],
-						signIn: true
+						history: []
 					})
 				);
 				localStorage.setItem("currentUser", `${loginState.value}`);

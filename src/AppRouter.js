@@ -8,12 +8,13 @@ import SignUp from "./components/SignUp/SignUp";
 import CardInfo from "./components/CardInfo/CardInfo";
 import Favorites from "./components/Favorites/Favorites";
 import SearchHistory from "./components/SearchHistory/SearchHistory";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const AppRouter = () => (
 	<Switch>
 		<Route path="/" exact component={HomePage} />
-		<Route path="/favorites" component={Favorites} />
-		<Route path="/searchhistory" component={SearchHistory} />
+		<ProtectedRoute path="/favorites" component={Favorites} />
+		<ProtectedRoute path="/searchhistory" component={SearchHistory} />
 		<Route path="/searchresult" component={SearchResult} />
 		<Route path="/signin" component={SignIn} />
 		<Route path="/signup" component={SignUp} />
