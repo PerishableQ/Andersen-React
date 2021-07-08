@@ -87,7 +87,7 @@ function SignUp(props) {
 								</label>
 								<input
 									autoComplete="off"
-									type="text"
+									type="password"
 									name="register-pass"
 									placeholder="Password"
 									id="register-pass-id"

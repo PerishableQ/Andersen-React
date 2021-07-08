@@ -17,7 +17,7 @@ function Favorites(props) {
 				<h2 className="favorites__title">Favorites</h2>
 
 				<ul className="info__card-container">
-					{favoritesState.length === 0 ? (
+					{!favoritesState.length ? (
 						<div className="favorites__add">Add something here</div>
 					) : (
 						favoritesState.map(card => {

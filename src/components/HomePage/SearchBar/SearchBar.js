@@ -11,20 +11,24 @@ function SearchBar(props) {
 	const dispatch = useDispatch();
 
 	function handleChange(event) {
-		setState(event.target.value);
 		event.preventDefault();
+		setState(event.target.value);
 	}
 
 	function handleFetch(event) {
+		event.preventDefault();
+
 		const searchQuery = state;
+
+		if (!searchQuery) {
+			return;
+		}
 
 		dispatch(fetchSearch(searchQuery));
 		dispatch(addHistory(searchQuery));
 		sessionStorage.setItem("currentSearch", JSON.stringify(searchQuery));
 
 		history.push("/searchresult");
-
-		event.preventDefault();
 	}
 
 	return (

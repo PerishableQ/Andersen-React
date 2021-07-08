@@ -83,7 +83,7 @@ function SignIn(props) {
 								</label>
 								<input
 									autoComplete="off"
-									type="text"
+									type="password"
 									name="auth-pass"
 									placeholder="Password"
 									id="auth-pass-id"
