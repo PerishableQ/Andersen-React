@@ -10,7 +10,8 @@ import logo from "../../../src/assets/img/logo.png";
 import "./Header.scss";
 
 function Header(props) {
-	const isLoggedIn = useStoreAuth();
+    const isLoggedIn = useStoreAuth();
+    const currentUserLogin = localStorage.getItem("currentUser");
 
 	return (
 		<header className="header">
@@ -41,6 +42,10 @@ function Header(props) {
 											Search History
 										</Link>
 									</li>
+
+									<li>
+										<div className="header-menu__link">{currentUserLogin}</div>
+									</li>
 								</React.Fragment>
 							) : null}
 						</ul>
@@ -50,7 +55,6 @@ function Header(props) {
 							<Link to="/signin" className="header-account__btn">
 								Sign In
 							</Link>
-							{/* <Link to="/signin">Sing In</Link> */}
 							<div className="header-account__spleeter"></div>
 							<Link to="/signup" className="header-account__btn">
 								Sign Up
