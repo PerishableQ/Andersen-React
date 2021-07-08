@@ -33,6 +33,7 @@ function Favorites(props) {
 													? "Coming soon"
 													: card.release_date
 											}
+											card={card}
 											isFavorite={true}
 										/>
 									</Link>
