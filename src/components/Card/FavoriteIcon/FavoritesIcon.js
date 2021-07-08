@@ -16,7 +16,6 @@ function FavoritesIcon(props) {
 		if (event.target !== event.currentTarget) {
 			event.preventDefault();
 		}
-		console.log(props);
 
 		if (filmsInFavoritesList.includes(props.card.id)) {
 			return dispatch(removeFavorite(props.card.id));
