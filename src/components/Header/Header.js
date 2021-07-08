@@ -10,8 +10,8 @@ import logo from "../../../src/assets/img/logo.png";
 import "./Header.scss";
 
 function Header(props) {
-    const isLoggedIn = useStoreAuth();
-    const currentUserLogin = localStorage.getItem("currentUser");
+	const isLoggedIn = useStoreAuth();
+	const currentUserLogin = localStorage.getItem("currentUser");
 
 	return (
 		<header className="header">

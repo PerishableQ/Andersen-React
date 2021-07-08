@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Card from "../Card/Card";
@@ -9,20 +9,27 @@ import SearchBar from "../HomePage/SearchBar/SearchBar";
 import { BASE_IMG_URL } from "../../consts/constsApi";
 
 import "./SearchResult.scss";
+import { fetchSearch } from "../../redux/middlewares/fetchSearch";
 
 function SearchResult(props) {
-	const searchResult = useSelector(state => state.search);
+	const dispatch = useDispatch();
 	const filmsInFavorites = useSelector(state => state.favorites.favorites).map(el => el.id);
+	const currentSearch = JSON.parse(sessionStorage.getItem("currentSearch"));
+	const SearchResult = useSelector(state => state.search.searchResult);
+
+	React.useEffect(() => {
+		dispatch(fetchSearch(currentSearch));
+	}, [dispatch, currentSearch]);
 
 	return (
 		<section className="search-result section">
 			<div className="vs-container">
 				<SearchBar />
 
-				<h2 className="search-result__title title">Search result:</h2>
+				<h2 className="search-result__title title">Search result for: {currentSearch}</h2>
 
 				<ul className="info__card-container">
-					{searchResult.map(card => {
+					{SearchResult.map(card => {
 						return (
 							<li className="info__card-item-wrapper" key={card.id}>
 								<Link to={`/cardinfo/${card.id}`}>

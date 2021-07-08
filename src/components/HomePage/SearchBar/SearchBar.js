@@ -20,6 +20,7 @@ function SearchBar(props) {
 
 		dispatch(fetchSearch(searchQuery));
 		dispatch(addHistory(searchQuery));
+		sessionStorage.setItem("currentSearch", JSON.stringify(searchQuery));
 
 		history.push("/searchresult");
 

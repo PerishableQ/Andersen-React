@@ -3,8 +3,8 @@ let currentUser = localStorage.getItem("currentUser");
 let startUserData = currentUser ? JSON.parse(localStorage.getItem(currentUser)).history : [];
 
 const initialState = {
-    history: startUserData
-}
+	history: startUserData
+};
 
 const historySlice = createSlice({
 	name: "history",
